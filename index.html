@@ -39,6 +39,7 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font);f
 img,svg{max-width:100%;display:block}
 a{color:var(--coral-ink)}
 :focus-visible{outline:3px solid #5B8FD6;outline-offset:2px;border-radius:4px}
+[hidden]{display:none!important}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .wrap{width:min(1040px,100% - 40px);margin-inline:auto}
 .narrow{width:min(760px,100% - 40px);margin-inline:auto}
@@ -124,6 +125,21 @@ a{color:var(--coral-ink)}
   .balloons{bottom:6px;width:120px}
   .bunting{width:62vw}
 }
+
+/* countdown */
+.countdown{position:relative;z-index:3;margin:18px auto 0;width:max-content;max-width:calc(100% - 32px);background:#fff;border:2px solid var(--ink);border-radius:20px;padding:12px 22px 14px;text-align:center}
+.cd-label{margin:0 0 6px;font-weight:900;font-size:15px}
+.cd-units{display:flex;gap:10px;justify-content:center;align-items:flex-end;margin:0}
+.cd-unit{display:flex;align-items:baseline;gap:3px}
+.cd-num{display:inline-block;min-width:2.1em;padding:2px 6px;border-radius:10px;font-weight:900;font-size:clamp(26px,4.4vw,38px);line-height:1.2;font-variant-numeric:tabular-nums;text-align:center}
+.cd-unit:nth-child(1) .cd-num{background:#FBDCE2;min-width:2.6em}
+.cd-unit:nth-child(2) .cd-num{background:#D7E8F8}
+.cd-unit:nth-child(3) .cd-num{background:#FCF0C4}
+.cd-unit:nth-child(4) .cd-num{background:#D3F1E5}
+.cd-u{font-weight:900;font-size:14px}
+.cd-msg{margin:0;font-weight:900;font-size:clamp(18px,3vw,24px);line-height:1.5}
+.cd-msg small{display:block;font-size:13px;color:var(--ink-soft);font-weight:700}
+@media (max-width:420px){.cd-units{gap:5px}.cd-num{font-size:24px;padding:2px 4px}.cd-u{font-size:12px}.countdown{padding:10px 12px 12px}}
 
 /* ---------- sections ---------- */
 section{padding:72px 0}
@@ -356,6 +372,16 @@ footer a{color:#fff}
     <p class="date"><time datetime="2026-11-08">2026.11.8（日）</time><span class="time">10:00〜15:00</span></p>
   </div>
   <p class="venue-bar"><span>会場</span><i style="font-style:normal;white-space:nowrap">加納岩総合病院・</i><i style="font-style:normal;white-space:nowrap">日下部記念病院・</i><i style="font-style:normal;white-space:nowrap">正面駐車場</i></p>
+  <div class="countdown" id="countdown" aria-live="off">
+    <p class="cd-label" id="cdLabel">開催まであと</p>
+    <p class="cd-units" id="cdUnits" role="timer" aria-label="開催までの残り時間">
+      <span class="cd-unit"><span class="cd-num" id="cdD">--</span><span class="cd-u">日</span></span>
+      <span class="cd-unit"><span class="cd-num" id="cdH">--</span><span class="cd-u">時間</span></span>
+      <span class="cd-unit"><span class="cd-num" id="cdM">--</span><span class="cd-u">分</span></span>
+      <span class="cd-unit"><span class="cd-num" id="cdS">--</span><span class="cd-u">秒</span></span>
+    </p>
+    <p class="cd-msg" id="cdMsg" hidden></p>
+  </div>
 </div>
 
 <!-- ================= NEWS ================= -->
@@ -749,6 +775,30 @@ footer a{color:#fff}
    ============================================================ */
 const GAS_URL = "ここにGASウェブアプリのURLを貼り付け";   // 例）https://script.google.com/macros/s/xxxxxxxx/exec
 const DEADLINE = new Date("2026-10-28T23:59:59+09:00");    // 申込締切（GAS側の設定と合わせてください）
+
+// カウントダウン（開催日時・終了日時はここで変更できます）
+(function(){
+  const START = new Date("2026-11-08T10:00:00+09:00");
+  const END   = new Date("2026-11-08T15:00:00+09:00");
+  const $ = id => document.getElementById(id);
+  const units = $("cdUnits"), label = $("cdLabel"), msg = $("cdMsg");
+  const pad = n => String(n).padStart(2, "0");
+  let timer;
+  function showMsg(html){ units.hidden = true; label.hidden = true; msg.innerHTML = html; msg.hidden = false; }
+  function tick(){
+    const now = new Date();
+    if (now >= END){ showMsg("たくさんのご来場、ありがとうございました！<small>加納岩健康フェス2026は終了しました</small>"); clearInterval(timer); return; }
+    if (now >= START){ showMsg("ただいま開催中！<small>15:00まで。どなたでもお気軽にお越しください</small>"); return; }
+    const diff = START - now;
+    const d = Math.floor(diff / 86400000), h = Math.floor(diff / 3600000) % 24,
+          m = Math.floor(diff / 60000) % 60, sec = Math.floor(diff / 1000) % 60;
+    label.textContent = d === 0 ? "本日開催！ スタートまであと" : "開催まであと";
+    $("cdD").textContent = d; $("cdH").textContent = pad(h); $("cdM").textContent = pad(m); $("cdS").textContent = pad(sec);
+    units.setAttribute("aria-label", "開催まであと" + d + "日" + h + "時間" + m + "分");
+    $("cdD").parentElement.hidden = d === 0;
+  }
+  tick(); timer = setInterval(tick, 1000);
+})();
 
 // 申込セクション表示中は追従ボタンを隠す
 (function(){
