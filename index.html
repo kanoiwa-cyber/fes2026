@@ -88,7 +88,9 @@ a{color:var(--coral-ink)}
 @media (max-width:640px){
   .hero{padding:20px 0 28px}
   .hero h1{width:calc(100% - 28px)}
-  .banner{border-radius:18px;box-shadow:0 0 0 5px rgba(255,255,255,.75),0 6px 16px rgba(63,58,74,.10)}
+  /* スマホ：同じバナー画像の文字部分（中央）だけを切り抜いて大きく表示 */
+  .banner{aspect-ratio:1200/635;object-fit:cover;object-position:56% 50%;
+    border-radius:18px;box-shadow:0 0 0 5px rgba(255,255,255,.75),0 6px 16px rgba(63,58,74,.10)}
 }
 
 /* countdown */
@@ -318,11 +320,9 @@ footer a{color:#fff}
 <div class="hero">
   <h1>
     <picture>
-      <!-- スマホ：文字部分を切り出した画像で大きく表示 -->
-      <source media="(max-width:640px)" srcset="banner-sp.jpg" width="1200" height="635">
       <img class="banner" src="banner-2000.jpg"
         srcset="banner-1200.jpg 1200w, banner-2000.jpg 2000w, banner-3000.jpg 3000w"
-        sizes="(max-width:1228px) calc(100vw - 48px), 1180px" width="2000" height="667" fetchpriority="high"
+        sizes="(max-width:640px) 165vw, (max-width:1228px) calc(100vw - 48px), 1180px" width="2000" height="667" fetchpriority="high"
         alt="社会医療法人加納岩 加納岩健康フェス2026　日時：2026年11月8日（日）10:00〜15:00　場所：加納岩総合病院・日下部記念病院・正面駐車場　入場無料">
     </picture>
   </h1>
