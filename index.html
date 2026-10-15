@@ -8,8 +8,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="加納岩健康フェス2026｜11月8日（日）開催・入場無料">
 <meta property="og:description" content="健康チェック、医師による健康講座、わくわく病院探検ツアー、おまつり広場など。どなたでもご参加いただけます。">
-<!-- 公開後、og:image は絶対URLに書き換えてください（例：https://ユーザー名.github.io/リポジトリ名/images/ogp.png） -->
-<meta property="og:image" content="images/ogp.png">
+<meta property="og:url" content="https://kanoiwa-cyber.github.io/fes2026/">
+<meta property="og:image" content="https://kanoiwa-cyber.github.io/fes2026/ogp.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -104,6 +104,16 @@ p{margin:0 0 1em}
 .news time{font-weight:700;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 .alert{margin-top:20px;border-left:6px solid var(--yellow);background:#FFFBEA;padding:14px 18px;border-radius:0 10px 10px 0}
 @media (max-width:560px){.news li{grid-template-columns:1fr;gap:0}}
+
+/* greeting */
+.greeting{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,40px) clamp(18px,4.5vw,48px);box-shadow:0 2px 0 var(--line)}
+.greeting p{text-indent:1em;margin:0 0 1.1em;line-height:2}
+.sign{margin-top:28px;display:flex;flex-direction:column;align-items:flex-end}
+.sign .sign-date{text-indent:0;margin:0 0 6px}
+.sign dl{display:grid;grid-template-columns:auto auto;gap:2px 1.2em;margin:0;align-items:baseline}
+.sign dt{font-size:14.5px;color:var(--ink-soft);text-align:right}
+.sign dd{margin:0;font-weight:900;font-size:17px;letter-spacing:.12em}
+@media (max-width:520px){.sign dl{grid-template-columns:1fr;text-align:right}.sign dd{margin-bottom:8px}}
 
 /* overview */
 .overview{display:grid;grid-template-columns:8em 1fr;margin:0;border-top:2px solid var(--ink)}
@@ -274,6 +284,7 @@ footer a{color:#fff}
     <nav class="gnav" aria-label="ページ内メニュー">
       <ul>
         <li><a href="#news">お知らせ</a></li>
+        <li><a href="#greeting">ごあいさつ</a></li>
         <li><a href="#about">開催概要</a></li>
         <li><a href="#events">イベント内容</a></li>
         <li><a href="#timetable">タイムテーブル</a></li>
@@ -288,8 +299,8 @@ footer a{color:#fff}
 <!-- ================= HERO ================= -->
 <div class="hero">
   <h1>
-    <img class="banner" src="images/banner-2000.jpg"
-      srcset="images/banner-1200.jpg 1200w, images/banner-2000.jpg 2000w, images/banner-3000.jpg 3000w"
+    <img class="banner" src="banner-2000.jpg"
+      srcset="banner-1200.jpg 1200w, banner-2000.jpg 2000w, banner-3000.jpg 3000w"
       sizes="100vw" width="2000" height="667" fetchpriority="high"
       alt="社会医療法人加納岩 加納岩健康フェス2026　日時：2026年11月8日（日）10:00〜15:00　場所：加納岩総合病院・日下部記念病院・正面駐車場　入場無料">
   </h1>
@@ -322,15 +333,17 @@ footer a{color:#fff}
 </section>
 
 <!-- ================= GREETING ================= -->
-<section id="greeting" class="alt">
+<section id="greeting">
   <div class="narrow">
     <h2 class="sec-title">ごあいさつ</h2>
     <div class="greeting">
       <p>日増しに秋の深まりを感じる季節となりました。皆様には、日頃より当法人の活動に温かいご理解とご支援を賜り、心より御礼申し上げます。</p>
       <p>この十年、私たちを取り巻く社会は大きく変化しました。コロナ禍を経て、人と人とが顔を合わせ、支え合うことの尊さを改めて感じるとともに、ＡＩをはじめとする技術の進歩は、暮らしに新たな可能性をもたらしています。時代が変わっても、人を思いやる心や、共に笑い合える喜びは変わりません。「人に始まり、人に在りて、人に尽きる」。こうした大切なものを、地域の皆様と共に未来へつないでいきたいと考えております。</p>
       <p>私たち加納岩グループは、地域の暮らしを支えるインフラとして、病気を治すだけでなく、皆様の健康な毎日を支え、地域を元気にする役割も担っております。少子高齢化が進む中、医療・介護の連携を深めるとともに、人と人がつながり、安心して暮らせる地域づくりのお役に立てるよう、今後も職員一同精進してまいります。</p>
-      <p>さて、このたび、十一月八日に「加納岩健康フェス2026」を、十年ぶりに開催する運びとなりました。これまで地域の皆様に親しまれてきた「健康まつり」の良さや想いを大切に受け継ぎながら、新たな企画を取り入れ、加納岩グループ全体の祭典として開催いたします。私たちにとっても、これまでの歩みに学び、新しい一歩を踏み出す挑戦となります。<br>当日は、医師による健康講座や骨密度測定、病院ツアー、吹奏楽の演奏や書道パフォーマンス、お子様も楽しめるゲームコーナー、キッチンカーなど、盛りだくさんの内容を予定しております。</p>
-      <p>このフェスが、健康について楽しく学び、病院や医療をより身近に感じていただくとともに、地域の皆様と私たちが、さらにつながる一日となれば幸いです。世代を超えて集い、笑顔を交わすひとときが、地域の元気と明日への希望につながることを願っております。<br>皆様と共に新たな第一歩を踏み出せるよう、加納岩グループが一丸となり、心を込めて準備を進めております。ご家族、ご友人とお誘い合わせの上、ぜひお気軽にお越しください。皆様の笑顔にお会いできることを、職員一同、心より楽しみにしております。</p>
+      <p>さて、このたび、十一月八日に「加納岩健康フェス2026」を、十年ぶりに開催する運びとなりました。これまで地域の皆様に親しまれてきた「健康まつり」の良さや想いを大切に受け継ぎながら、新たな企画を取り入れ、加納岩グループ全体の祭典として開催いたします。私たちにとっても、これまでの歩みに学び、新しい一歩を踏み出す挑戦となります。</p>
+      <p>当日は、医師による健康講座や骨密度測定、病院ツアー、吹奏楽の演奏や書道パフォーマンス、お子様も楽しめるゲームコーナー、キッチンカーなど、盛りだくさんの内容を予定しております。</p>
+      <p>このフェスが、健康について楽しく学び、病院や医療をより身近に感じていただくとともに、地域の皆様と私たちが、さらにつながる一日となれば幸いです。世代を超えて集い、笑顔を交わすひとときが、地域の元気と明日への希望につながることを願っております。</p>
+      <p>皆様と共に新たな第一歩を踏み出せるよう、加納岩グループが一丸となり、心を込めて準備を進めております。ご家族、ご友人とお誘い合わせの上、ぜひお気軽にお越しください。皆様の笑顔にお会いできることを、職員一同、心より楽しみにしております。</p>
       <div class="sign">
         <p class="sign-date">2026年10月</p>
         <dl>
