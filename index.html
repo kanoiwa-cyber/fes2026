@@ -62,15 +62,33 @@ a{color:var(--coral-ink)}
   .gnav a{font-size:13px;padding:5px 9px}
 }
 
-/* ---------- hero（バナー画像） ---------- */
-.hero{position:relative;background:linear-gradient(#fff,var(--mint-bg));padding:0 0 36px}
-.hero h1{margin:0}
-.banner{display:block;width:100%;height:auto;aspect-ratio:3/1;background:#F6F3EE}
-.hero-sub{display:none}
+/* ---------- hero（バナー画像＋パステルの縞模様） ---------- */
+.hero{position:relative;overflow:hidden;
+  background:
+    repeating-linear-gradient(90deg,
+      #FBDCE2 0 52px,#fff 52px 74px,
+      #D7E8F8 74px 126px,#fff 126px 148px,
+      #FCF0C4 148px 200px,#fff 200px 222px,
+      #D3F1E5 222px 274px,#fff 274px 296px,
+      #E7DFF7 296px 348px,#fff 348px 370px,
+      #FDE5D3 370px 422px,#fff 422px 444px);
+  padding:36px 0 44px}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.9;
+  background-image:
+    radial-gradient(circle,#F6B3C0 0 5px,transparent 6px),
+    radial-gradient(circle,#A9CDF2 0 5px,transparent 6px),
+    radial-gradient(circle,#F7D35A 0 5px,transparent 6px),
+    radial-gradient(circle,#8FD6BC 0 5px,transparent 6px),
+    radial-gradient(circle,#C9B3EE 0 5px,transparent 6px);
+  background-size:230px 190px,270px 240px,210px 260px,250px 210px,300px 230px;
+  background-position:20px 40px,140px 120px,60px 160px,190px 20px,90px 80px}
+.hero h1{position:relative;z-index:2;margin:0 auto;width:min(1180px,100% - 48px)}
+.banner{display:block;width:100%;height:auto;border-radius:28px;background:#fff;
+  box-shadow:0 0 0 8px rgba(255,255,255,.75),0 10px 28px rgba(63,58,74,.10)}
 @media (max-width:640px){
-  .hero{padding-bottom:28px}
-  .hero-sub{display:block;margin:14px auto 0;text-align:center;font-weight:900;font-size:17px;line-height:1.6}
-  .hero-sub span{display:inline-block;background:var(--coral-ink);color:#fff;border-radius:999px;padding:0 10px;margin-left:6px;font-size:14px;vertical-align:1px}
+  .hero{padding:20px 0 28px}
+  .hero h1{width:calc(100% - 28px)}
+  .banner{border-radius:18px;box-shadow:0 0 0 5px rgba(255,255,255,.75),0 6px 16px rgba(63,58,74,.10)}
 }
 
 /* countdown */
@@ -299,12 +317,15 @@ footer a{color:#fff}
 <!-- ================= HERO ================= -->
 <div class="hero">
   <h1>
-    <img class="banner" src="banner-2000.jpg"
-      srcset="banner-1200.jpg 1200w, banner-2000.jpg 2000w, banner-3000.jpg 3000w"
-      sizes="100vw" width="2000" height="667" fetchpriority="high"
-      alt="社会医療法人加納岩 加納岩健康フェス2026　日時：2026年11月8日（日）10:00〜15:00　場所：加納岩総合病院・日下部記念病院・正面駐車場　入場無料">
+    <picture>
+      <!-- スマホ：文字部分を切り出した画像で大きく表示 -->
+      <source media="(max-width:640px)" srcset="banner-sp.jpg" width="1200" height="635">
+      <img class="banner" src="banner-2000.jpg"
+        srcset="banner-1200.jpg 1200w, banner-2000.jpg 2000w, banner-3000.jpg 3000w"
+        sizes="(max-width:1228px) calc(100vw - 48px), 1180px" width="2000" height="667" fetchpriority="high"
+        alt="社会医療法人加納岩 加納岩健康フェス2026　日時：2026年11月8日（日）10:00〜15:00　場所：加納岩総合病院・日下部記念病院・正面駐車場　入場無料">
+    </picture>
   </h1>
-  <p class="hero-sub">11月8日（日）10:00〜15:00<span>入場無料</span></p>
   <div class="countdown" id="countdown" aria-live="off">
     <p class="cd-label" id="cdLabel">開催まであと</p>
     <p class="cd-units" id="cdUnits" role="timer" aria-label="開催までの残り時間">
