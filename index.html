@@ -62,68 +62,15 @@ a{color:var(--coral-ink)}
   .gnav a{font-size:13px;padding:5px 9px}
 }
 
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;
-  background:
-    repeating-linear-gradient(90deg,
-      #FBDCE2 0 52px,#fff 52px 74px,
-      #D7E8F8 74px 126px,#fff 126px 148px,
-      #FCF0C4 148px 200px,#fff 200px 222px,
-      #D3F1E5 222px 274px,#fff 274px 296px,
-      #E7DFF7 296px 348px,#fff 348px 370px,
-      #FDE5D3 370px 422px,#fff 422px 444px);
-  padding:72px 0 64px}
-.hero::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.9;
-  background-image:
-    radial-gradient(circle,#F6B3C0 0 5px,transparent 6px),
-    radial-gradient(circle,#A9CDF2 0 5px,transparent 6px),
-    radial-gradient(circle,#F7D35A 0 5px,transparent 6px),
-    radial-gradient(circle,#8FD6BC 0 5px,transparent 6px),
-    radial-gradient(circle,#C9B3EE 0 5px,transparent 6px);
-  background-size:230px 190px,270px 240px,210px 260px,250px 210px,300px 230px;
-  background-position:20px 40px,140px 120px,60px 160px,190px 20px,90px 80px}
-.bunting{position:absolute;top:-4px;width:min(440px,46vw);z-index:2}
-.bunting.l{left:-20px}
-.bunting.r{right:-20px;transform:scaleX(-1)}
-.balloons{position:absolute;bottom:14px;width:clamp(150px,20vw,250px);z-index:2}
-.balloons.l{left:max(8px,calc(50% - 640px))}
-.balloons.r{right:max(8px,calc(50% - 640px));transform:scaleX(-1)}
-.oval{position:relative;z-index:3;margin-inline:auto;width:min(760px,100% - 32px);background:#fff;border-radius:50%/46%;padding:64px 56px 58px;text-align:center;box-shadow:0 0 0 10px rgba(255,255,255,.55)}
-.org{font-size:clamp(15px,2.2vw,22px);font-weight:900;letter-spacing:.12em;margin:0}
-.title{margin:.1em 0 0;line-height:1.08;font-weight:900;letter-spacing:.02em}
-.title span{display:block}
-.t-1{font-size:clamp(44px,9.4vw,98px);color:var(--yellow);
-  text-shadow:
-    3px 0 0 var(--ink),-3px 0 0 var(--ink),0 3px 0 var(--ink),0 -3px 0 var(--ink),
-    2px 2px 0 var(--ink),-2px 2px 0 var(--ink),2px -2px 0 var(--ink),-2px -2px 0 var(--ink),
-    5px 6px 0 #F9E7A6}
-.revival{display:inline-block;margin:.45em 0 .35em;padding-top:.45em;font-size:clamp(17px,2.6vw,27px);font-weight:900;color:var(--yellow-deep);
-  background:radial-gradient(circle,#A9CDF2 0 2.5px,transparent 3px) top center/12px 6px repeat-x;
-  text-shadow:1px 0 0 var(--ink),-1px 0 0 var(--ink),0 1px 0 var(--ink),0 -1px 0 var(--ink)}
-.t-2{font-size:clamp(44px,9.4vw,98px);color:var(--sky);letter-spacing:.06em;
-  text-shadow:
-    3px 0 0 var(--ink),-3px 0 0 var(--ink),0 3px 0 var(--ink),0 -3px 0 var(--ink),
-    2px 2px 0 var(--ink),-2px 2px 0 var(--ink),2px -2px 0 var(--ink),-2px -2px 0 var(--ink),
-    5px 6px 0 #DCEBFA}
-.theme{margin:.9em 0 0;font-size:clamp(16px,2.4vw,22px);font-weight:900;line-height:1.5}
-.theme small{display:block;font-size:.72em;font-weight:700;color:var(--ink-soft)}
-.date{margin:.55em 0 0;font-weight:900;font-size:clamp(28px,5.6vw,56px);line-height:1.15;color:var(--mint);letter-spacing:.02em;
-  text-shadow:
-    2.5px 0 0 var(--ink),-2.5px 0 0 var(--ink),0 2.5px 0 var(--ink),0 -2.5px 0 var(--ink),
-    2px 2px 0 var(--ink),-2px 2px 0 var(--ink),2px -2px 0 var(--ink),-2px -2px 0 var(--ink)}
-.date .time{display:block;font-size:.5em;color:var(--ink);text-shadow:none;margin-top:.25em}
-.free{position:absolute;z-index:4;top:-8px;right:-14px;width:clamp(96px,14vw,138px);aspect-ratio:1;display:grid;place-items:center;transform:rotate(8deg)}
-.free svg{position:absolute;inset:0;width:100%;height:100%}
-.free b{position:relative;color:#fff;font-size:clamp(20px,3vw,30px);font-weight:900;line-height:1.1;text-shadow:0 0 1px var(--coral-ink),1px 1px 0 var(--coral-ink),-1px -1px 0 var(--coral-ink),1px -1px 0 var(--coral-ink),-1px 1px 0 var(--coral-ink)}
-.free small{display:block;font-size:.48em;margin-top:2px}
-.venue-bar{position:relative;z-index:3;margin:28px auto 0;width:max-content;max-width:calc(100% - 32px);background:#fff;border:2px solid var(--ink);border-radius:999px;padding:8px 22px;font-weight:900;font-size:clamp(14px,2.2vw,19px);text-align:center;line-height:1.5}
-.venue-bar span{display:inline-block;background:var(--ink);color:#fff;border-radius:999px;padding:0 10px;margin-right:10px;font-size:.82em}
-@media (max-width:760px){
-  .hero{padding:96px 0 170px}
-  .oval{border-radius:44px;padding:40px 20px 36px}
-  .free{top:-36px;right:-6px}
-  .balloons{bottom:6px;width:120px}
-  .bunting{width:62vw}
+/* ---------- hero（バナー画像） ---------- */
+.hero{position:relative;background:linear-gradient(#fff,var(--mint-bg));padding:0 0 36px}
+.hero h1{margin:0}
+.banner{display:block;width:100%;height:auto;aspect-ratio:3/1;background:#F6F3EE}
+.hero-sub{display:none}
+@media (max-width:640px){
+  .hero{padding-bottom:28px}
+  .hero-sub{display:block;margin:14px auto 0;text-align:center;font-weight:900;font-size:17px;line-height:1.6}
+  .hero-sub span{display:inline-block;background:var(--coral-ink);color:#fff;border-radius:999px;padding:0 10px;margin-left:6px;font-size:14px;vertical-align:1px}
 }
 
 /* countdown */
@@ -339,64 +286,14 @@ footer a{color:#fff}
 
 <main id="top">
 <!-- ================= HERO ================= -->
-<!-- TOPバナー画像は後日差し替え予定 -->
 <div class="hero">
-  <svg class="bunting l" viewBox="0 -4 440 140" aria-hidden="true"><path d="M0 8 Q220 118 440 8" fill="none" stroke="#B9B2C4" stroke-width="3"/><path transform="translate(27.5 20.9) rotate(23.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#9EC9F0"/><path transform="translate(82.5 41.5) rotate(17.4)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#E5DDF7"/><path transform="translate(137.5 55.3) rotate(10.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#C9B6EE"/><path transform="translate(192.5 62.1) rotate(3.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#F7A3A8"/><path transform="translate(247.5 62.1) rotate(-3.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#7FE0C8"/><path transform="translate(302.5 55.3) rotate(-10.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#BFE3FA"/><path transform="translate(357.5 41.5) rotate(-17.4)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#F9D5DC"/><path transform="translate(412.5 20.9) rotate(-23.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#CDB8F0"/></svg>
-  <svg class="bunting r" viewBox="0 -4 440 140" aria-hidden="true"><path d="M0 8 Q220 118 440 8" fill="none" stroke="#B9B2C4" stroke-width="3"/><path transform="translate(27.5 20.9) rotate(23.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#9EC9F0"/><path transform="translate(82.5 41.5) rotate(17.4)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#E5DDF7"/><path transform="translate(137.5 55.3) rotate(10.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#C9B6EE"/><path transform="translate(192.5 62.1) rotate(3.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#F7A3A8"/><path transform="translate(247.5 62.1) rotate(-3.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#7FE0C8"/><path transform="translate(302.5 55.3) rotate(-10.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#BFE3FA"/><path transform="translate(357.5 41.5) rotate(-17.4)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#F9D5DC"/><path transform="translate(412.5 20.9) rotate(-23.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#CDB8F0"/></svg>
-
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <symbol id="balloon" viewBox="0 0 60 80">
-        <path d="M30 2C14 2 4 15 4 30c0 17 13 31 23 34l-3 6h12l-3-6c10-3 23-17 23-34C56 15 46 2 30 2z" fill="currentColor"/>
-        <path d="M30 2C14 2 4 15 4 30c0 17 13 31 23 34l-3 6h12l-3-6c10-3 23-17 23-34C56 15 46 2 30 2z" fill="url(#shade)"/>
-        <ellipse cx="19" cy="21" rx="5.5" ry="10" fill="#fff" opacity=".55" transform="rotate(-24 19 21)"/>
-      </symbol>
-      <radialGradient id="shade" cx=".35" cy=".3" r=".8">
-        <stop offset="0" stop-color="#fff" stop-opacity=".25"/>
-        <stop offset="1" stop-color="#000" stop-opacity=".08"/>
-      </radialGradient>
-      <symbol id="cluster" viewBox="0 0 260 400">
-        <g fill="none" stroke="#B9B2C4" stroke-width="1.4">
-          <path d="M75 120 Q110 260 130 362"/><path d="M140 95 Q140 250 130 362"/><path d="M200 125 Q160 260 130 362"/>
-          <path d="M45 190 Q100 280 130 362"/><path d="M110 175 Q125 280 130 362"/><path d="M175 190 Q150 280 130 362"/>
-          <path d="M225 200 Q170 290 130 362"/><path d="M80 255 Q110 310 130 362"/><path d="M150 250 Q140 310 130 362"/>
-          <path d="M210 265 Q160 320 130 362"/><path d="M120 310 Q128 340 130 362"/>
-        </g>
-        <path d="M130 362c-14-10-26-6-20 2 4 5 14 2 20-2zm0 0c14-10 26-6 20 2-4 5-14 2-20-2zm0 0c-6 10-12 22-16 30m16-30c4 10 10 22 14 30" fill="#F6B3C0" stroke="#E68C9C" stroke-width="1.4"/>
-        <use href="#balloon" x="40" y="40" width="70" height="93" color="#F6A9B8"/>
-        <use href="#balloon" x="105" y="15" width="70" height="93" color="#F8DC7A"/>
-        <use href="#balloon" x="165" y="45" width="70" height="93" color="#C9B3EE"/>
-        <use href="#balloon" x="10" y="110" width="70" height="93" color="#9FDCC6"/>
-        <use href="#balloon" x="75" y="95" width="70" height="93" color="#C9B3EE"/>
-        <use href="#balloon" x="140" y="110" width="70" height="93" color="#F6A9B8"/>
-        <use href="#balloon" x="190" y="120" width="70" height="93" color="#9FDCC6"/>
-        <use href="#balloon" x="45" y="175" width="70" height="93" color="#F49A9E"/>
-        <use href="#balloon" x="115" y="170" width="70" height="93" color="#F8DC7A"/>
-        <use href="#balloon" x="175" y="185" width="70" height="93" color="#F6A9B8"/>
-        <use href="#balloon" x="85" y="230" width="70" height="93" color="#9FDCC6"/>
-      </symbol>
-    </defs>
-  </svg>
-  <svg class="balloons l" viewBox="0 0 260 400" aria-hidden="true"><use href="#cluster"/></svg>
-  <svg class="balloons r" viewBox="0 0 260 400" aria-hidden="true"><use href="#cluster"/></svg>
-
-  <div class="oval">
-    <div class="free" aria-hidden="true">
-      <svg viewBox="0 0 100 100"><g fill="#F49A9E" stroke="#fff" stroke-width="2">
-        <circle cx="50" cy="13" r="13"/><circle cx="73" cy="21" r="13"/><circle cx="87" cy="42" r="13"/><circle cx="85" cy="66" r="13"/><circle cx="68" cy="84" r="13"/><circle cx="44" cy="88" r="13"/><circle cx="23" cy="76" r="13"/><circle cx="12" cy="54" r="13"/><circle cx="16" cy="30" r="13"/><circle cx="31" cy="15" r="13"/></g>
-        <circle cx="50" cy="50" r="38" fill="#F49A9E"/><circle cx="50" cy="50" r="33" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="2 3"/></svg>
-      <b>入場<br>無料</b>
-    </div>
-    <p class="org">社会医療法人加納岩</p>
-    <h1 class="title">
-      <span class="t-1">加納岩健康</span>
-      <span class="revival">10年ぶりの復活祭！</span>
-      <span class="t-2">フェス2026</span>
-    </h1>
-    <p class="theme">「地域と病院が繋がる日」<small>〜医療を通したまちづくり〜</small></p>
-    <p class="date"><time datetime="2026-11-08">2026.11.8（日）</time><span class="time">10:00〜15:00</span></p>
-  </div>
-  <p class="venue-bar"><span>会場</span><i style="font-style:normal;white-space:nowrap">加納岩総合病院・</i><i style="font-style:normal;white-space:nowrap">日下部記念病院・</i><i style="font-style:normal;white-space:nowrap">正面駐車場</i></p>
+  <h1>
+    <img class="banner" src="images/banner-2000.jpg"
+      srcset="images/banner-1200.jpg 1200w, images/banner-2000.jpg 2000w, images/banner-3000.jpg 3000w"
+      sizes="100vw" width="2000" height="667" fetchpriority="high"
+      alt="社会医療法人加納岩 加納岩健康フェス2026　日時：2026年11月8日（日）10:00〜15:00　場所：加納岩総合病院・日下部記念病院・正面駐車場　入場無料">
+  </h1>
+  <p class="hero-sub">11月8日（日）10:00〜15:00<span>入場無料</span></p>
   <div class="countdown" id="countdown" aria-live="off">
     <p class="cd-label" id="cdLabel">開催まであと</p>
     <p class="cd-units" id="cdUnits" role="timer" aria-label="開催までの残り時間">
@@ -420,6 +317,27 @@ footer a{color:#fff}
     <div class="alert">
       <b>荒天時の対応について</b><br>
       荒天による中止や内容の変更、駐車場のご案内は、当日朝までにこのページでお知らせします。お出かけ前にご確認ください。
+    </div>
+  </div>
+</section>
+
+<!-- ================= GREETING ================= -->
+<section id="greeting" class="alt">
+  <div class="narrow">
+    <h2 class="sec-title">ごあいさつ</h2>
+    <div class="greeting">
+      <p>日増しに秋の深まりを感じる季節となりました。皆様には、日頃より当法人の活動に温かいご理解とご支援を賜り、心より御礼申し上げます。</p>
+      <p>この十年、私たちを取り巻く社会は大きく変化しました。コロナ禍を経て、人と人とが顔を合わせ、支え合うことの尊さを改めて感じるとともに、ＡＩをはじめとする技術の進歩は、暮らしに新たな可能性をもたらしています。時代が変わっても、人を思いやる心や、共に笑い合える喜びは変わりません。「人に始まり、人に在りて、人に尽きる」。こうした大切なものを、地域の皆様と共に未来へつないでいきたいと考えております。</p>
+      <p>私たち加納岩グループは、地域の暮らしを支えるインフラとして、病気を治すだけでなく、皆様の健康な毎日を支え、地域を元気にする役割も担っております。少子高齢化が進む中、医療・介護の連携を深めるとともに、人と人がつながり、安心して暮らせる地域づくりのお役に立てるよう、今後も職員一同精進してまいります。</p>
+      <p>さて、このたび、十一月八日に「加納岩健康フェス2026」を、十年ぶりに開催する運びとなりました。これまで地域の皆様に親しまれてきた「健康まつり」の良さや想いを大切に受け継ぎながら、新たな企画を取り入れ、加納岩グループ全体の祭典として開催いたします。私たちにとっても、これまでの歩みに学び、新しい一歩を踏み出す挑戦となります。<br>当日は、医師による健康講座や骨密度測定、病院ツアー、吹奏楽の演奏や書道パフォーマンス、お子様も楽しめるゲームコーナー、キッチンカーなど、盛りだくさんの内容を予定しております。</p>
+      <p>このフェスが、健康について楽しく学び、病院や医療をより身近に感じていただくとともに、地域の皆様と私たちが、さらにつながる一日となれば幸いです。世代を超えて集い、笑顔を交わすひとときが、地域の元気と明日への希望につながることを願っております。<br>皆様と共に新たな第一歩を踏み出せるよう、加納岩グループが一丸となり、心を込めて準備を進めております。ご家族、ご友人とお誘い合わせの上、ぜひお気軽にお越しください。皆様の笑顔にお会いできることを、職員一同、心より楽しみにしております。</p>
+      <div class="sign">
+        <p class="sign-date">2026年10月</p>
+        <dl>
+          <dt>加納岩健康フェス2026実行委員長</dt><dd>中澤 良太</dd>
+          <dt>社会医療法人加納岩　理事長</dt><dd>中澤 良英</dd>
+        </dl>
+      </div>
     </div>
   </div>
 </section>
