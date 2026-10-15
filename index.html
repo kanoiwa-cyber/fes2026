@@ -215,7 +215,7 @@ p{margin:0 0 1em}
 
 /* form */
 .form-card{background:#fff;border:2px solid var(--ink);border-radius:22px;padding:36px clamp(18px,4vw,44px)}
-fieldset{border:0;margin:0 0 30px;padding:0}
+fieldset{border:0;margin:0 0 30px;padding:0;min-width:0}
 legend{font-size:19px;font-weight:900;padding:0;margin-bottom:14px;display:flex;align-items:center;gap:10px;width:100%;border-bottom:2px solid var(--line);padding-bottom:8px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media (max-width:600px){.row{grid-template-columns:1fr}}
@@ -236,8 +236,10 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#5B8FD6;box-sh
 .choice input:checked+span{background:#FFF1C9;border-color:var(--yellow-deep);font-weight:700}
 .choice input:checked+span::before{content:"✓ "}
 .choice input:focus-visible+span{outline:3px solid #5B8FD6;outline-offset:2px}
-.allergy-detail{border-left:4px solid var(--coral);background:#FFF6F7;padding:16px 18px;border-radius:0 12px 12px 0;margin-top:12px}
+.allergy-detail{border-left:4px solid var(--coral);background:#FFF6F7;padding:16px 18px;border-radius:0 12px 12px 0;margin:0 0 18px}
 .allergy-detail[hidden]{display:none}
+.sub-h{font-weight:900;font-size:16px;margin:10px 0 4px;padding-left:10px;border-left:4px solid var(--coral)}
+.child-num{display:inline-block;background:#FFF1C9;color:#7A5A00;border-radius:999px;padding:0 12px;font-size:14px;font-weight:900}
 .notice-box{background:#F7F5FA;border-radius:12px;padding:16px 20px;font-size:14.5px;line-height:1.75;max-height:260px;overflow:auto}
 .notice-box ul{margin:0;padding-left:1.2em}
 .agree{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-weight:700}
@@ -250,13 +252,28 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#5B8FD6;box-sh
 .btn.primary:hover{background:#9E3640}
 .btn:disabled{opacity:.6;cursor:wait}
 .hp{position:absolute;left:-9999px}
-.confirm dl{display:grid;grid-template-columns:11em 1fr;margin:0 0 24px;border-top:2px solid var(--ink)}
+
+/* 申込人数の選択 */
+.count-step{text-align:center}
+.count-step h3{margin-bottom:6px}
+.count-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:22px 0 18px}
+.count-btn{font:inherit;font-weight:900;font-size:30px;line-height:1.2;width:128px;padding:16px 0 14px;border:2px solid var(--ink);border-radius:18px;background:#fff;color:var(--ink);cursor:pointer}
+.count-btn small{display:block;font-size:13px;font-weight:700;color:var(--ink-soft);margin-top:4px}
+.count-btn:hover,.count-btn[aria-pressed="true"]{background:#FFF1C9;border-color:var(--yellow-deep)}
+.count-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 12px;background:#FFF8DD;border-radius:12px;padding:10px 16px;margin-bottom:18px;font-weight:700}
+.count-bar b{font-size:1.15em}
+.link-btn{font:inherit;font-size:14px;font-weight:700;background:none;border:0;padding:4px 0;color:var(--coral-ink);text-decoration:underline;cursor:pointer}
+
+.confirm h4{margin:22px 0 8px;font-size:16px;font-weight:900}
+.confirm dl{display:grid;grid-template-columns:11em 1fr;margin:0 0 8px;border-top:2px solid var(--ink)}
 .confirm dt,.confirm dd{margin:0;padding:10px 8px;border-bottom:1px solid var(--line)}
 .confirm dt{font-weight:700;color:var(--ink-soft);font-size:14.5px}
 .confirm dd{white-space:pre-wrap;word-break:break-word}
+.confirm .btns{margin-top:24px}
 @media (max-width:560px){.confirm dl{grid-template-columns:1fr}.confirm dt{border:0;padding-bottom:0}}
 .done{text-align:center;padding:12px 0}
-.done .no{display:inline-block;font-size:28px;font-weight:900;letter-spacing:.08em;border:2px dashed var(--ink);border-radius:12px;padding:6px 22px;margin:8px 0 16px}
+.done .no{display:inline-block;font-size:28px;font-weight:900;letter-spacing:.08em;border:2px dashed var(--ink);border-radius:12px;padding:6px 22px;margin:8px 0 16px;white-space:pre-line}
+.done .no.multi{font-size:19px;letter-spacing:.04em;line-height:1.9;text-align:left}
 .closed{text-align:center;background:#F7F5FA;border-radius:16px;padding:28px}
 .form-msg{border-radius:10px;padding:12px 16px;margin-bottom:20px;font-weight:700}
 .form-msg.ng{background:#FFF0F1;color:var(--coral-ink)}
@@ -292,7 +309,7 @@ footer a{color:#fff}
 .to-form{transition:opacity .2s}
 @media (max-width:760px){html{scroll-padding-top:104px}}
 
-@media print{.site-head,.to-form,.gmap,form{display:none!important}section{padding:24px 0}.hero{padding:24px 0}}
+@media print{.site-head,.to-form,.gmap,form,.count-step{display:none!important}section{padding:24px 0}.hero{padding:24px 0}}
 </style>
 </head>
 <body>
@@ -315,6 +332,7 @@ footer a{color:#fff}
 
 <main id="top">
 <!-- ================= HERO ================= -->
+<!-- TOPバナー画像は後日差し替え予定 -->
 <div class="hero">
   <svg class="bunting l" viewBox="0 -4 440 140" aria-hidden="true"><path d="M0 8 Q220 118 440 8" fill="none" stroke="#B9B2C4" stroke-width="3"/><path transform="translate(27.5 20.9) rotate(23.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#9EC9F0"/><path transform="translate(82.5 41.5) rotate(17.4)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#E5DDF7"/><path transform="translate(137.5 55.3) rotate(10.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#C9B6EE"/><path transform="translate(192.5 62.1) rotate(3.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#F7A3A8"/><path transform="translate(247.5 62.1) rotate(-3.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#7FE0C8"/><path transform="translate(302.5 55.3) rotate(-10.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#BFE3FA"/><path transform="translate(357.5 41.5) rotate(-17.4)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#F9D5DC"/><path transform="translate(412.5 20.9) rotate(-23.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#CDB8F0"/></svg>
   <svg class="bunting r" viewBox="0 -4 440 140" aria-hidden="true"><path d="M0 8 Q220 118 440 8" fill="none" stroke="#B9B2C4" stroke-width="3"/><path transform="translate(27.5 20.9) rotate(23.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#9EC9F0"/><path transform="translate(82.5 41.5) rotate(17.4)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#E5DDF7"/><path transform="translate(137.5 55.3) rotate(10.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#C9B6EE"/><path transform="translate(192.5 62.1) rotate(3.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#F7A3A8"/><path transform="translate(247.5 62.1) rotate(-3.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#7FE0C8"/><path transform="translate(302.5 55.3) rotate(-10.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#BFE3FA"/><path transform="translate(357.5 41.5) rotate(-17.4)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#F9D5DC"/><path transform="translate(412.5 20.9) rotate(-23.6)" d="M-22 0 H22 V44 L0 30 L-22 44Z" fill="#CDB8F0"/></svg>
@@ -390,7 +408,7 @@ footer a{color:#fff}
     <h2 class="sec-title">お知らせ</h2>
     <!-- 新しいお知らせは一番上に <li> を追加してください -->
     <ul class="news">
-      <li><time datetime="2026-10-05">2026.10.05</time><span>特設ページを公開しました。「わくわく病院探検ツアー」の参加申込を受け付けています（10月28日（水）まで）。</span></li>
+      <li><time datetime="2026-10-05">2026.10.05</time><span>特設ページを公開しました。「わくわく病院探検ツアー」の参加申込を受け付けています（11月1日（日）まで）。</span></li>
     </ul>
     <div class="alert">
       <b>荒天時の対応について</b><br>
@@ -403,18 +421,19 @@ footer a{color:#fff}
 <section id="about" class="alt">
   <div class="narrow">
     <h2 class="sec-title">開催概要</h2>
-    <p class="lead">10年ぶりに「健康まつり」が帰ってきます。健康チェックや医師の講演、病院の中を見て回るツアー、キッチンカーやステージまで。ご家族そろってお気軽にお越しください。</p>
+    <p class="lead">10年ぶりに「健康まつり」が帰ってきます。健康チェックや脳神経外科医師による無料講演、日川高等学校書道部のパフォーマンス、山梨市民吹奏楽団の演奏、キッチンカーなど、盛りだくさんの内容です。ご家族そろってお気軽にお越しください。</p>
     <dl class="overview">
       <dt>日時</dt><dd><strong>2026年11月8日（日）</strong>10:00〜15:00</dd>
       <dt>会場</dt><dd>加納岩総合病院・日下部記念病院・正面駐車場<br><span class="hint">山梨市上神内川1309</span></dd>
       <dt>入場料</dt><dd>無料（どなたでもご参加いただけます）</dd>
       <dt>主催</dt><dd>加納岩健康フェス2026実行委員会</dd>
-      <dt>お問い合わせ</dt><dd>加納岩総合病院 <a href="tel:0553222511">0553-22-2511</a><br><span class="hint">「健康フェスについて」とお伝えください</span></dd>
+      <dt>お問い合わせ</dt><dd>加納岩健康フェス2026実行委員会<br><a href="tel:0553399720">0553-39-9720</a></dd>
     </dl>
   </div>
 </section>
 
 <!-- ================= EVENTS ================= -->
+<!-- 健康チェックブース・講演・体験コーナーはチラシ（OCR）受領後に内容を更新予定 -->
 <section id="events">
   <div class="wrap">
     <h2 class="sec-title">イベント内容</h2>
@@ -450,8 +469,8 @@ footer a{color:#fff}
         <h3><span class="dot" style="background:var(--sky)"></span>講演</h3>
         <dl class="lecture">
           <dt>演題</dt><dd class="big">脳梗塞について</dd>
-          <dt>講師</dt><dd>加納岩総合病院 脳外科医師　中村 真</dd>
-          <dt>時間</dt><dd>13:30〜14:30</dd>
+          <dt>講師</dt><dd>加納岩総合病院 脳神経外科医師　中村 真</dd>
+          <dt>時間</dt><dd>13:30〜14:30（開場 13:00）</dd>
           <dt>会場</dt><dd>加納岩総合病院 2階 大会議室</dd>
         </dl>
       </div>
@@ -461,7 +480,7 @@ footer a{color:#fff}
         <ul class="list" style="--c:var(--yellow)">
           <li><a href="#tour">わくわく病院探検ツアー</a><span class="tag pink">事前申込制</span><span class="note">小中学生対象。手術室見学や調剤体験など</span></li>
           <li>わくわく広場♪<span class="note">スーパーボールすくいなど</span></li>
-          <li>世界チャンピオン 高橋靖彦選手によるラート体験</li>
+          <li>世界チャンピオン 髙橋靖彦選手によるラート体験</li>
           <li>AED体験<span class="note">加納岩総合病院 総合受付前で実施（協力：日本光電工業株式会社）</span></li>
           <li>ワンコインマッサージ by mukamanis<span class="note">当日受付順</span></li>
         </ul>
@@ -470,7 +489,7 @@ footer a{color:#fff}
       <div class="block wide">
         <h3><span class="dot" style="background:var(--pink)"></span>おまつり広場</h3>
         <ul class="list" style="--c:var(--pink);columns:2 280px;column-gap:32px">
-          <li>山梨市市民吹奏楽団 演奏</li>
+          <li>山梨市民吹奏楽団 演奏</li>
           <li>日川高等学校 書道部パフォーマンス<span class="note">雨天時は中止します</span></li>
           <li>わたがし・フランクフルト 無料配布</li>
           <li>キッチンカー・パン・コーヒー販売</li>
@@ -492,11 +511,11 @@ footer a{color:#fff}
     <h2 class="sec-title">タイムテーブル</h2>
     <p class="lead">健康チェックブース・キッチンカーなどは10:00〜15:00の間いつでもお楽しみいただけます。</p>
     <ol class="tt">
-      <li style="--c:var(--coral)"><time>10:00</time><div><b>開会・会場受付スタート</b><span>会場受付でスタンプカードと記念品をお渡しします</span></div></li>
-      <li style="--c:var(--sky)"><time>10:30</time><div><b>山梨市市民吹奏楽団 演奏</b><span>おまつり広場（〜11:00）</span></div></li>
-      <li style="--c:var(--yellow)"><time>10:50</time><div><b>わくわく病院探検ツアー</b><span>事前申込の方のみ（〜12:40）</span></div></li>
-      <li style="--c:var(--mint)"><time>12:00</time><div><b>日川高等学校 書道部パフォーマンス</b><span>おまつり広場（〜12:30）※雨天中止</span></div></li>
-      <li style="--c:var(--lilac)"><time>13:30</time><div><b>講演「脳梗塞について」</b><span>加納岩総合病院 2階 大会議室（〜14:30）</span></div></li>
+      <li style="--c:var(--coral)"><time>10:00</time><div><b>開会・受付スタート</b><span>受付でスタンプカードと記念品をお渡しします</span></div></li>
+      <li style="--c:var(--sky)"><time>10:30</time><div><b>山梨市民吹奏楽団 演奏</b><span>おまつり広場（10:30〜11:30）</span></div></li>
+      <li style="--c:var(--yellow)"><time>10:40</time><div><b>わくわく病院探検ツアー</b><span>10:40 受付開始／10:50〜12:40 ツアー（事前申込の方のみ）</span></div></li>
+      <li style="--c:var(--mint)"><time>12:00</time><div><b>日川高等学校 書道部パフォーマンス</b><span>おまつり広場（12:00〜12:30）※雨天中止</span></div></li>
+      <li style="--c:var(--lilac)"><time>13:30</time><div><b>講演「脳梗塞について」</b><span>加納岩総合病院 2階 大会議室（13:30〜14:30／開場 13:00）</span></div></li>
       <li style="--c:var(--coral)"><time>15:00</time><div><b>閉会</b></div></li>
     </ol>
     <p class="hint" style="margin-top:16px">ラート体験・AED体験の時間は決まり次第お知らせします。</p>
@@ -509,13 +528,13 @@ footer a{color:#fff}
     <h2 class="sec-title">わくわく病院探検ツアー 参加申込</h2>
     <div class="tour-head">
       <div>
-        <span class="deadline">申込締切　10月28日（水）</span>
+        <span class="deadline">申込締切　11月1日（日）</span>
         <p>ふだんは入れない手術室や、お薬をつくる調剤の様子をのぞいてみよう！看護師さんといっしょに体の測定をしたり、レントゲンのしくみを知ったり、病院のお仕事を体験できるツアーです。</p>
         <dl class="facts">
           <dt>対象</dt><dd>小学生・中学生（保護者の同伴可）</dd>
-          <dt>定員</dt><dd>10名（5名×2班）<br><span class="hint">申込多数の場合は抽選。結果は10月30日（金）までにメールでお知らせします</span></dd>
-          <dt>時間</dt><dd>10:50〜12:40（約90分）</dd>
-          <dt>集合</dt><dd>10:30までに加納岩総合病院 会計窓口前</dd>
+          <dt>定員</dt><dd>10名（5名×2班）<br><span class="hint">申込多数の場合は抽選。結果は11月4日（水）までにメールでお知らせします</span></dd>
+          <dt>時間</dt><dd>10:50〜12:40<br><span class="hint">※10:40から受付を開始します</span></dd>
+          <dt>集合</dt><dd>10:40までに加納岩総合病院 会計窓口前</dd>
           <dt>参加費</dt><dd>無料</dd>
         </dl>
       </div>
@@ -523,7 +542,7 @@ footer a{color:#fff}
         <h3>当日の流れ</h3>
         <ol class="flow">
           <li><div><b>受付・班分け</b><small>アレルギーの最終確認をして、注意事項カードをお渡しします</small></div></li>
-          <li><div><b>全体説明</b><small>院長先生のあいさつ、ツアーの流れと安全のお約束</small></div></li>
+          <li><div><b>全体説明</b><small>加納岩総合病院 中澤院長先生のあいさつ、ツアーの流れと安全のお約束</small></div></li>
           <li><div><b>1階　バイタル体験・レントゲン</b><small>体の測定とレントゲン撮影のしくみ</small></div></li>
           <li><div><b>2階　手術室見学・調剤体験</b><small>2班が入れ替わりで回ります</small></div></li>
           <li><div><b>まとめ・記念撮影</b><small>ふり返りと質問タイム、解散</small></div></li>
@@ -535,30 +554,32 @@ footer a{color:#fff}
       <div class="form-card" id="formCard">
         <div id="formClosed" class="closed" hidden>
           <h3>受付は終了しました</h3>
-          <p style="margin:0">たくさんのお申込みありがとうございました。<br>抽選結果は10月30日（金）までにメールでお知らせします。</p>
+          <p style="margin:0">たくさんのお申込みありがとうございました。<br>抽選結果は11月4日（水）までにメールでお知らせします。</p>
         </div>
 
-        <form id="tourForm" novalidate>
-          <div id="formMsg" class="form-msg" role="alert" hidden></div>
-          <p class="hint" style="margin-top:0">ごきょうだいでご参加の場合は、お一人ずつお申し込みください。<span class="req" style="margin-left:0">必須</span>の項目は必ずご入力ください。</p>
+        <!-- STEP 1：申込人数の選択 -->
+        <div id="countStep" class="count-step">
+          <h3>参加するお子さまの人数を選んでください</h3>
+          <p class="hint" style="margin:0">ごきょうだいは、まとめてお申し込みいただけます。<br>できるだけ同じ班になるよう配慮します。</p>
+          <div class="count-btns" role="group" aria-label="申込人数">
+            <button type="button" class="count-btn" data-count="1">1人<small>で申し込む</small></button>
+            <button type="button" class="count-btn" data-count="2">2人<small>で申し込む</small></button>
+            <button type="button" class="count-btn" data-count="3">3人<small>で申し込む</small></button>
+          </div>
+          <p class="hint" style="margin:0">4人以上でのお申込みは、実行委員会（<a href="tel:0553399720">0553-39-9720</a>）までお電話ください。</p>
+        </div>
 
-          <fieldset>
-            <legend><span class="dot" style="background:var(--yellow)"></span>参加するお子さま</legend>
-            <div class="row">
-              <div class="field"><label for="childName">お名前<span class="req">必須</span></label><input type="text" id="childName" name="childName" autocomplete="off" maxlength="40" required placeholder="例）加納 花子"></div>
-              <div class="field"><label for="childKana">ふりがな<span class="req">必須</span></label><input type="text" id="childKana" name="childKana" maxlength="40" required placeholder="例）かのう はなこ"></div>
-            </div>
-            <div class="row">
-              <div class="field"><label for="grade">学年<span class="req">必須</span></label>
-                <select id="grade" name="grade" required>
-                  <option value="">選択してください</option>
-                  <option>小学1年生</option><option>小学2年生</option><option>小学3年生</option><option>小学4年生</option><option>小学5年生</option><option>小学6年生</option>
-                  <option>中学1年生</option><option>中学2年生</option><option>中学3年生</option>
-                </select>
-              </div>
-              <div class="field"><label for="siblings">一緒に申し込むごきょうだい<span class="opt">任意</span></label><input type="text" id="siblings" name="siblings" maxlength="80" placeholder="例）加納 太郎（小5）"><p class="hint">同じ班を希望する場合にご記入ください</p></div>
-            </div>
-          </fieldset>
+        <!-- STEP 2：申込フォーム -->
+        <form id="tourForm" novalidate hidden>
+          <div id="formMsg" class="form-msg" role="alert" hidden></div>
+          <div class="count-bar">
+            <span>お申込み人数：<b id="countLabel">1人</b></span>
+            <button type="button" class="link-btn" id="changeCount">人数を変更する</button>
+          </div>
+          <p class="hint" style="margin-top:0"><span class="req" style="margin-left:0">必須</span>の項目は必ずご入力ください。</p>
+
+          <!-- お子さまの入力欄はここに人数分表示されます -->
+          <div id="childrenHost"></div>
 
           <fieldset>
             <legend><span class="dot" style="background:var(--sky)"></span>保護者の方</legend>
@@ -583,49 +604,6 @@ footer a{color:#fff}
           </fieldset>
 
           <fieldset>
-            <legend><span class="dot" style="background:var(--coral)"></span>アレルギー・健康状態の確認</legend>
-            <p class="hint" style="margin-top:-4px">ツアー中の体験で、お菓子などの食品を使う場合があります。安全のため、正確にご記入ください。</p>
-            <div class="field"><span class="lbl">食物アレルギー<span class="req">必須</span></span>
-              <div class="choices">
-                <label class="choice"><input type="radio" name="allergy" value="なし" required><span>ありません</span></label>
-                <label class="choice"><input type="radio" name="allergy" value="あり"><span>あります</span></label>
-              </div>
-            </div>
-            <div class="allergy-detail" id="allergyDetail" hidden>
-              <div class="field"><span class="lbl">アレルギーのある食品<span class="req">必須</span></span>
-                <div class="choices" id="allergens">
-                  <label class="choice"><input type="checkbox" name="allergens" value="卵"><span>卵</span></label>
-                  <label class="choice"><input type="checkbox" name="allergens" value="乳"><span>乳</span></label>
-                  <label class="choice"><input type="checkbox" name="allergens" value="小麦"><span>小麦</span></label>
-                  <label class="choice"><input type="checkbox" name="allergens" value="えび"><span>えび</span></label>
-                  <label class="choice"><input type="checkbox" name="allergens" value="かに"><span>かに</span></label>
-                  <label class="choice"><input type="checkbox" name="allergens" value="くるみ"><span>くるみ</span></label>
-                  <label class="choice"><input type="checkbox" name="allergens" value="そば"><span>そば</span></label>
-                  <label class="choice"><input type="checkbox" name="allergens" value="落花生"><span>落花生（ピーナッツ）</span></label>
-                </div>
-              </div>
-              <div class="field"><label for="allergyOther">上記以外の食品・原材料<span class="opt">任意</span></label><input type="text" id="allergyOther" name="allergyOther" maxlength="120" placeholder="例）大豆、ごま、キウイフルーツ"></div>
-              <div class="row">
-                <div class="field"><span class="lbl">アナフィラキシーを起こしたこと<span class="req">必須</span></span>
-                  <div class="choices">
-                    <label class="choice"><input type="radio" name="anaphylaxis" value="ない"><span>ない</span></label>
-                    <label class="choice"><input type="radio" name="anaphylaxis" value="ある"><span>ある</span></label>
-                    <label class="choice"><input type="radio" name="anaphylaxis" value="わからない"><span>わからない</span></label>
-                  </div>
-                </div>
-                <div class="field"><span class="lbl">エピペン®の携帯<span class="req">必須</span></span>
-                  <div class="choices">
-                    <label class="choice"><input type="radio" name="epipen" value="当日持参する"><span>当日持参する</span></label>
-                    <label class="choice"><input type="radio" name="epipen" value="処方されていない"><span>処方されていない</span></label>
-                  </div>
-                </div>
-              </div>
-              <div class="field" style="margin-bottom:0"><label for="allergyNote">症状や、触れる・においでも反応するかなど<span class="opt">任意</span></label><textarea id="allergyNote" name="allergyNote" maxlength="500" placeholder="例）少量でもじんましんが出ます。触るだけなら大丈夫です。"></textarea></div>
-            </div>
-            <div class="field" style="margin-top:18px"><label for="health">持病・体調面・行動面などで、スタッフに伝えておきたいこと<span class="opt">任意</span></label><textarea id="health" name="health" maxlength="500" placeholder="例）ぜんそくがあり吸入薬を持参します／大きな音が苦手です"></textarea></div>
-          </fieldset>
-
-          <fieldset>
             <legend><span class="dot" style="background:var(--lilac)"></span>写真撮影について</legend>
             <p class="hint" style="margin-top:-4px">当日はツアーの記念撮影のほか、実行委員会による記録撮影やケーブルテレビの取材を予定しています。</p>
             <div class="field"><span class="lbl">病院の広報物・ホームページ・テレビ等への写真や映像の掲載<span class="req">必須</span></span>
@@ -641,11 +619,11 @@ footer a{color:#fff}
             <legend><span class="dot" style="background:var(--mint)"></span>注意事項の確認</legend>
             <div class="notice-box" tabindex="0" aria-label="注意事項">
               <ul>
-                <li>申込多数の場合は抽選とし、10月30日（金）までに結果をメールでお知らせします。</li>
-                <li>当日は10:30までに加納岩総合病院 会計窓口前で受付を済ませてください。</li>
+                <li>申込多数の場合は抽選とし、11月4日（水）までに結果をメールでお知らせします。</li>
+                <li>当日は10:40から受付を開始します。10:40までに加納岩総合病院 会計窓口前で受付を済ませてください。</li>
                 <li>必ずスタッフと一緒に行動し、立入禁止の場所には入らないでください。</li>
                 <li>院内では走らず、大きな声を出さないようお願いします。医療機器や備品にはスタッフの許可なく触れないでください。</li>
-                <li>患者さんの診療が優先です。当日の状況により、ルートや体験内容を変更・中止する場合があります。</li>
+                <li>患者さんの診療が優先となります。当日の状況により、ルートや体験内容を変更・中止する場合があります。</li>
                 <li>写真撮影はスタッフが許可した場所・対象に限ります。患者さんや職員が写り込まないようご配慮ください。</li>
                 <li>発熱や咳など体調がすぐれない場合は、参加をお控えください。院内ではマスクの着用をお願いします。</li>
                 <li>ツアー中に気分が悪くなった場合やけが・迷子などの際は、すぐに近くのスタッフへお知らせください。</li>
@@ -663,7 +641,7 @@ footer a{color:#fff}
         <div id="confirmView" class="confirm" hidden>
           <h3>入力内容の確認</h3>
           <p class="hint">内容をご確認のうえ「この内容で申し込む」を押してください。</p>
-          <dl id="confirmList"></dl>
+          <div id="confirmList"></div>
           <div id="sendMsg" class="form-msg ng" role="alert" hidden></div>
           <div class="btns">
             <button type="button" class="btn" id="backBtn">修正する</button>
@@ -675,8 +653,8 @@ footer a{color:#fff}
           <h3>お申込みを受け付けました</h3>
           <p style="margin-bottom:4px">受付番号</p>
           <p class="no" id="receiptNo">―</p>
-          <p>ご入力のメールアドレスに受付確認メールをお送りしました。<br>抽選結果は10月30日（金）までにお知らせします。</p>
-          <p class="hint">確認メールが届かない場合は、迷惑メールフォルダをご確認のうえ、加納岩総合病院（0553-22-2511）へお問い合わせください。</p>
+          <p id="doneMail">ご入力のメールアドレスに受付確認メールをお送りしました。<br>抽選結果は11月4日（水）までにお知らせします。</p>
+          <p class="hint">確認メールが届かない場合は、迷惑メールフォルダをご確認のうえ、加納岩健康フェス2026実行委員会（0553-39-9720）へお問い合わせください。</p>
         </div>
       </div>
     </div>
@@ -690,33 +668,47 @@ footer a{color:#fff}
     <div class="access">
       <div>
         <figure class="map-svg" style="margin:0">
-          <svg viewBox="0 0 520 330" role="img" aria-labelledby="mapTitle">
-            <title id="mapTitle">会場案内図。左側に駐車場、上段中央に加納岩総合病院の正面玄関と会場受付、右側に日下部記念病院、右下におまつり広場があります。下側の道路は左が山梨市駅方面、右が山梨市役所方面です。</title>
-            <rect x="0" y="0" width="520" height="330" fill="#fff"/>
-            <rect x="10" y="290" width="500" height="30" rx="8" fill="#EEEAF3"/>
-            <text x="22" y="310" font-size="13" font-weight="700" fill="#655F72">← 至 山梨市駅</text>
-            <text x="498" y="310" font-size="13" font-weight="700" fill="#655F72" text-anchor="end">至 山梨市役所 →</text>
-            <rect x="20" y="20" width="110" height="110" rx="10" fill="#E4EEF9" stroke="#9DB7D6"/>
-            <text x="75" y="88" font-size="44" font-weight="900" fill="#5B7CA8" text-anchor="middle">P</text>
-            <text x="75" y="44" font-size="12" font-weight="700" fill="#5B7CA8" text-anchor="middle">駐車場</text>
-            <rect x="20" y="148" width="190" height="130" rx="10" fill="#E4EEF9" stroke="#9DB7D6"/>
-            <text x="115" y="230" font-size="48" font-weight="900" fill="#5B7CA8" text-anchor="middle">P</text>
-            <text x="115" y="172" font-size="12" font-weight="700" fill="#5B7CA8" text-anchor="middle">駐車場</text>
-            <rect x="150" y="20" width="200" height="74" rx="8" fill="#F4F0FA" stroke="#B9B2C4"/>
-            <text x="250" y="52" font-size="15" font-weight="900" fill="#3F3A4A" text-anchor="middle">加納岩総合病院</text>
-            <text x="250" y="74" font-size="11.5" font-weight="700" fill="#655F72" text-anchor="middle">健康チェック・体験イベント</text>
-            <rect x="370" y="20" width="135" height="74" rx="8" fill="#F4F0FA" stroke="#B9B2C4"/>
-            <text x="437" y="52" font-size="14" font-weight="900" fill="#3F3A4A" text-anchor="middle">日下部記念病院</text>
-            <text x="437" y="74" font-size="11.5" font-weight="700" fill="#655F72" text-anchor="middle">正面玄関</text>
-            <rect x="228" y="148" width="22" height="130" fill="#E9E5EE"/>
-            <path d="M239 270v-34m0 0l-8 10m8-10l8 10" stroke="#3F3A4A" stroke-width="3" fill="none"/>
-            <rect x="262" y="104" width="96" height="34" rx="17" fill="#EE7F86"/>
-            <text x="310" y="126" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">会場受付</text>
-            <path d="M310 104v-10" stroke="#EE7F86" stroke-width="3"/>
-            <rect x="290" y="165" width="215" height="110" rx="12" fill="#FFF3C9" stroke="#E9B930"/>
-            <path d="M330 205l16-14 16 14zM370 205l16-14 16 14zM410 205l16-14 16 14z" fill="#F6B3C0"/>
-            <text x="397" y="248" font-size="18" font-weight="900" fill="#3F3A4A" text-anchor="middle">おまつり広場</text>
-            <text x="397" y="266" font-size="11" font-weight="700" fill="#655F72" text-anchor="middle">キッチンカー・ステージ・働くクルマ</text>
+          <svg viewBox="0 0 520 340" role="img" aria-labelledby="mapTitle">
+            <title id="mapTitle">会場案内図。左側に駐車場、上段中央に加納岩総合病院（健康チェック・体験イベント・講演）と会場受付、右上に日下部記念病院（体験イベント・無料屋台）、右下におまつり広場があります。下側の道路は駅前通りで、左が山梨市駅方面、右が山梨市役所方面です。駅前通りから矢印の方向に入場します。</title>
+            <rect x="0" y="0" width="520" height="340" fill="#fff"/>
+            <!-- 駅前通り -->
+            <rect x="10" y="296" width="500" height="34" rx="8" fill="#EEEAF3"/>
+            <text x="22" y="318" font-size="13" font-weight="700" fill="#655F72">← 山梨市駅</text>
+            <text x="385" y="319" font-size="14" font-weight="900" fill="#3F3A4A" text-anchor="middle">駅前通り</text>
+            <text x="498" y="318" font-size="13" font-weight="700" fill="#655F72" text-anchor="end">山梨市役所 →</text>
+            <!-- 駐車場 -->
+            <rect x="20" y="20" width="115" height="115" rx="10" fill="#E4EEF9" stroke="#9DB7D6"/>
+            <text x="77" y="92" font-size="44" font-weight="900" fill="#5B7CA8" text-anchor="middle">P</text>
+            <text x="77" y="44" font-size="12" font-weight="700" fill="#5B7CA8" text-anchor="middle">駐車場</text>
+            <rect x="20" y="150" width="190" height="134" rx="10" fill="#E4EEF9" stroke="#9DB7D6"/>
+            <text x="115" y="234" font-size="48" font-weight="900" fill="#5B7CA8" text-anchor="middle">P</text>
+            <text x="115" y="174" font-size="12" font-weight="700" fill="#5B7CA8" text-anchor="middle">駐車場</text>
+            <!-- 加納岩総合病院 -->
+            <rect x="150" y="20" width="200" height="96" rx="8" fill="#F4F0FA" stroke="#B9B2C4"/>
+            <text x="250" y="47" font-size="15" font-weight="900" fill="#3F3A4A" text-anchor="middle">加納岩総合病院</text>
+            <text x="250" y="72" font-size="11.5" font-weight="700" fill="#655F72" text-anchor="middle">健康チェック・体験イベント</text>
+            <text x="250" y="92" font-size="11.5" font-weight="700" fill="#655F72" text-anchor="middle">講演（2階 大会議室）</text>
+            <!-- 日下部記念病院 -->
+            <rect x="362" y="20" width="146" height="96" rx="8" fill="#F4F0FA" stroke="#B9B2C4"/>
+            <text x="435" y="45" font-size="14" font-weight="900" fill="#3F3A4A" text-anchor="middle">日下部記念病院</text>
+            <text x="435" y="67" font-size="11.5" font-weight="700" fill="#655F72" text-anchor="middle">体験イベント</text>
+            <text x="435" y="85" font-size="11" font-weight="700" fill="#655F72" text-anchor="middle">無料屋台（わたがし・</text>
+            <text x="435" y="101" font-size="11" font-weight="700" fill="#655F72" text-anchor="middle">フランクフルト）など</text>
+            <!-- 会場受付 -->
+            <path d="M310 116v12" stroke="#EE7F86" stroke-width="3"/>
+            <rect x="262" y="128" width="96" height="32" rx="16" fill="#EE7F86"/>
+            <text x="310" y="149" font-size="13" font-weight="900" fill="#fff" text-anchor="middle">会場受付</text>
+            <!-- 入口（駅前通りから） -->
+            <rect x="226" y="150" width="26" height="146" fill="#E9E5EE"/>
+            <text x="239" y="178" font-size="12" font-weight="900" fill="#3F3A4A" text-anchor="middle">入</text>
+            <text x="239" y="194" font-size="12" font-weight="900" fill="#3F3A4A" text-anchor="middle">口</text>
+            <path d="M239 288v-60m0 0l-8 10m8-10l8 10" stroke="#3F3A4A" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- おまつり広場 -->
+            <rect x="290" y="172" width="218" height="112" rx="12" fill="#FFF3C9" stroke="#E9B930"/>
+            <path d="M330 210l16-14 16 14zM370 210l16-14 16 14zM410 210l16-14 16 14z" fill="#F6B3C0"/>
+            <text x="399" y="238" font-size="18" font-weight="900" fill="#3F3A4A" text-anchor="middle">おまつり広場</text>
+            <text x="399" y="258" font-size="11" font-weight="700" fill="#655F72" text-anchor="middle">キッチンカー・ステージ</text>
+            <text x="399" y="274" font-size="11" font-weight="700" fill="#655F72" text-anchor="middle">はたらく車展示</text>
           </svg>
         </figure>
         <p class="hint" style="margin-top:8px">※配置は変更になる場合があります。当日は会場受付でご案内します。</p>
@@ -724,7 +716,7 @@ footer a{color:#fff}
       <div>
         <ul class="how">
           <li><b>電車でお越しの方</b>JR中央線「山梨市駅」から徒歩約5分</li>
-          <li><b>お車でお越しの方</b>加納岩総合病院の駐車場をご利用ください。<br><span class="hint">駐車台数に限りがあります。できるだけ公共交通機関をご利用ください。</span></li>
+          <li><b>お車でお越しの方</b>加納岩総合病院の駐車場をご利用ください。ただし、当日は会場内が一方通行となり、駅前通りからのご案内となりますのでご注意ください。<br><span class="hint">駐車台数に限りがありますので、乗り合わせや公共交通機関のご利用にご協力ください。ご迷惑をおかけしますが、ご理解とご協力をお願いいたします。</span></li>
           <li><b>所在地</b>加納岩総合病院　山梨県山梨市上神内川1309<br><a href="https://www.google.com/maps/search/?api=1&query=%E5%8A%A0%E7%B4%8D%E5%B2%A9%E7%B7%8F%E5%90%88%E7%97%85%E9%99%A2" target="_blank" rel="noopener">Googleマップで開く</a></li>
         </ul>
         <div class="gmap"><iframe title="加納岩総合病院の地図" loading="lazy" src="https://www.google.com/maps?q=%E5%8A%A0%E7%B4%8D%E5%B2%A9%E7%B7%8F%E5%90%88%E7%97%85%E9%99%A2&output=embed"></iframe></div>
@@ -740,7 +732,7 @@ footer a{color:#fff}
     <ul class="notes">
       <li>各コーナー・イベントの開催場所は、会場受付でご案内します。</li>
       <li>感染対策のため、病院内ではマスクの着用をお願いします。</li>
-      <li>駐車場に限りがあります。できるだけ公共交通機関をご利用ください。</li>
+      <li>お車の場合、会場内は一方通行です。駅前通りからお入りください。駐車場に限りがあるため、乗り合わせや公共交通機関のご利用にご協力ください。</li>
       <li>当日も通常どおり入院患者さんがいらっしゃいます。院内では静かにお過ごしください。</li>
       <li>おむつ替え・授乳のスペースは、加納岩総合病院1階 ATM横にございます。</li>
       <li>イベント内容は変更になる場合があります。最新情報はこのページでお知らせします。</li>
@@ -758,9 +750,9 @@ footer a{color:#fff}
         <p style="margin:0">社会医療法人加納岩（加納岩総合病院・日下部記念病院・山梨リハビリテーション病院）</p>
       </div>
       <address>
-        お問い合わせ：加納岩総合病院<br>
-        山梨県山梨市上神内川1309<br>
-        TEL <a href="tel:0553222511">0553-22-2511</a>
+        お問い合わせ：加納岩健康フェス2026実行委員会<br>
+        TEL <a href="tel:0553399720">0553-39-9720</a><br>
+        会場：加納岩総合病院（山梨県山梨市上神内川1309）
       </address>
     </div>
     <p class="copy">© 2026 社会医療法人加納岩</p>
@@ -774,7 +766,9 @@ footer a{color:#fff}
    設定：GASをウェブアプリとしてデプロイした後、URLを貼り付けてください
    ============================================================ */
 const GAS_URL = "ここにGASウェブアプリのURLを貼り付け";   // 例）https://script.google.com/macros/s/xxxxxxxx/exec
-const DEADLINE = new Date("2026-10-28T23:59:59+09:00");    // 申込締切（GAS側の設定と合わせてください）
+const DEADLINE = new Date("2026-11-01T23:59:59+09:00");    // 申込締切（GAS側の設定も 11/1 に合わせてください）
+const MAX_CHILDREN = 3;                                     // 1回で申し込める最大人数
+const CONTACT = "加納岩健康フェス2026実行委員会（0553-39-9720）";
 
 // カウントダウン（開催日時・終了日時はここで変更できます）
 (function(){
@@ -808,31 +802,95 @@ const DEADLINE = new Date("2026-10-28T23:59:59+09:00");    // 申込締切（GAS
 })();
 
 (function(){
-  const form = document.getElementById("tourForm");
-  const closed = document.getElementById("formClosed");
-  const confirmView = document.getElementById("confirmView");
-  const doneView = document.getElementById("doneView");
-  const formMsg = document.getElementById("formMsg");
-  const sendMsg = document.getElementById("sendMsg");
-  const sendBtn = document.getElementById("sendBtn");
-  const detail = document.getElementById("allergyDetail");
-  let payload = null;
+  const $ = id => document.getElementById(id);
+  const form = $("tourForm"), closed = $("formClosed"), countStep = $("countStep");
+  const confirmView = $("confirmView"), doneView = $("doneView");
+  const formMsg = $("formMsg"), sendMsg = $("sendMsg"), sendBtn = $("sendBtn"), backBtn = $("backBtn");
+  const card = $("formCard");
+  let count = 1, payloads = [], receipts = [];
 
-  if (new Date() > DEADLINE) { form.hidden = true; closed.hidden = false; return; }
+  if (new Date() > DEADLINE) { countStep.hidden = true; form.hidden = true; closed.hidden = false; return; }
 
-  // アレルギー「あり」で詳細欄を表示
-  form.querySelectorAll('input[name="allergy"]').forEach(r => r.addEventListener("change", () => {
-    detail.hidden = form.allergy.value !== "あり";
+  /* ---------- お子さまの入力欄（最大人数分を用意し、選んだ人数だけ表示） ---------- */
+  const GRADES = ["小学1年生","小学2年生","小学3年生","小学4年生","小学5年生","小学6年生","中学1年生","中学2年生","中学3年生"];
+  const ALLERGENS = [["卵","卵"],["乳","乳"],["小麦","小麦"],["えび","えび"],["かに","かに"],["くるみ","くるみ"],["そば","そば"],["落花生","落花生（ピーナッツ）"]];
+  function childHTML(i){
+    return `
+    <fieldset class="child" id="child_${i}" hidden disabled>
+      <legend><span class="dot" style="background:var(--yellow)"></span>参加するお子さま<span class="child-num">${i}人目</span></legend>
+      <div class="row">
+        <div class="field"><label for="childName_${i}">お名前<span class="req">必須</span></label><input type="text" id="childName_${i}" name="childName_${i}" autocomplete="off" maxlength="40" placeholder="例）加納 花子"></div>
+        <div class="field"><label for="childKana_${i}">ふりがな<span class="req">必須</span></label><input type="text" id="childKana_${i}" name="childKana_${i}" maxlength="40" placeholder="例）かのう はなこ"></div>
+      </div>
+      <div class="field" style="max-width:340px"><label for="grade_${i}">学年<span class="req">必須</span></label>
+        <select id="grade_${i}" name="grade_${i}"><option value="">選択してください</option>${GRADES.map(g=>`<option>${g}</option>`).join("")}</select>
+      </div>
+
+      <p class="sub-h">アレルギー・健康状態の確認</p>
+      <p class="hint" style="margin-top:0;margin-bottom:12px">ツアー中の体験で、お菓子などの食品を使う場合があります。安全のため、正確にご記入ください。</p>
+      <div class="field"><span class="lbl">食物アレルギー<span class="req">必須</span></span>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="allergy_${i}" value="なし"><span>ありません</span></label>
+          <label class="choice"><input type="radio" name="allergy_${i}" value="あり"><span>あります</span></label>
+        </div>
+      </div>
+      <div class="allergy-detail" id="allergyDetail_${i}" hidden>
+        <div class="field"><span class="lbl">何のアレルギーですか？<span class="req">必須</span></span>
+          <p class="hint" style="margin:0 0 8px">あてはまる食品を選ぶか、下の欄に食品名をご記入ください（両方でも構いません）。</p>
+          <div class="choices">${ALLERGENS.map(([v,t])=>`<label class="choice"><input type="checkbox" name="allergens_${i}" value="${v}"><span>${t}</span></label>`).join("")}</div>
+        </div>
+        <div class="field"><label for="allergyOther_${i}">アレルギーのある食品・原材料（上記以外／詳しい内容）</label><input type="text" id="allergyOther_${i}" name="allergyOther_${i}" maxlength="120" placeholder="例）大豆、ごま、キウイフルーツ"></div>
+        <div class="row">
+          <div class="field"><span class="lbl">アナフィラキシーを起こしたこと<span class="req">必須</span></span>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="anaphylaxis_${i}" value="ない"><span>ない</span></label>
+              <label class="choice"><input type="radio" name="anaphylaxis_${i}" value="ある"><span>ある</span></label>
+              <label class="choice"><input type="radio" name="anaphylaxis_${i}" value="わからない"><span>わからない</span></label>
+            </div>
+          </div>
+          <div class="field"><span class="lbl">エピペン®の携帯<span class="req">必須</span></span>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="epipen_${i}" value="当日持参する"><span>当日持参する</span></label>
+              <label class="choice"><input type="radio" name="epipen_${i}" value="処方されていない"><span>処方されていない</span></label>
+            </div>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:0"><label for="allergyNote_${i}">症状や、触れる・においでも反応するかなど<span class="opt">任意</span></label><textarea id="allergyNote_${i}" name="allergyNote_${i}" maxlength="500" placeholder="例）少量でもじんましんが出ます。触るだけなら大丈夫です。"></textarea></div>
+      </div>
+      <div class="field"><label for="health_${i}">持病・体調面・行動面などで、スタッフに伝えておきたいこと<span class="opt">任意</span></label><textarea id="health_${i}" name="health_${i}" maxlength="500" placeholder="例）ぜんそくがあり吸入薬を持参します／大きな音が苦手です"></textarea></div>
+    </fieldset>`;
+  }
+  $("childrenHost").innerHTML = Array.from({length:MAX_CHILDREN},(_,k)=>childHTML(k+1)).join("");
+
+  // アレルギー「あります」で詳細欄を表示
+  form.addEventListener("change", e => {
+    const m = e.target.type === "radio" && /^allergy_(\d)$/.exec(e.target.name);
+    if (m) $("allergyDetail_" + m[1]).hidden = e.target.value !== "あり";
+  });
+
+  /* ---------- STEP 1 → STEP 2 ---------- */
+  function setCount(n){
+    count = n;
+    for (let i = 1; i <= MAX_CHILDREN; i++){
+      const fs = $("child_" + i);
+      fs.hidden = i > n; fs.disabled = i > n;
+    }
+    $("countLabel").textContent = n + "人";
+    countStep.querySelectorAll(".count-btn").forEach(b => b.setAttribute("aria-pressed", String(+b.dataset.count === n)));
+  }
+  countStep.querySelectorAll(".count-btn").forEach(b => b.addEventListener("click", () => {
+    setCount(+b.dataset.count);
+    clearErrors();
+    countStep.hidden = true; form.hidden = false;
+    card.scrollIntoView({behavior:"smooth"});
+    $("childName_1").focus({preventScroll:true});
   }));
+  $("changeCount").addEventListener("click", () => {
+    form.hidden = true; countStep.hidden = false;
+    card.scrollIntoView({behavior:"smooth"});
+  });
 
-  const labels = {
-    childName:"お子さまのお名前", childKana:"ふりがな", grade:"学年", siblings:"一緒に申し込むごきょうだい",
-    parentName:"保護者のお名前", parentKana:"保護者のふりがな", email:"メールアドレス", tel:"当日の電話番号",
-    accompany:"ツアーへの同伴", allergy:"食物アレルギー", allergens:"アレルギーのある食品", allergyOther:"上記以外の食品・原材料",
-    anaphylaxis:"アナフィラキシーの経験", epipen:"エピペン®の携帯", allergyNote:"症状など", health:"スタッフに伝えておきたいこと",
-    photo:"写真・映像の掲載"
-  };
-
+  /* ---------- 入力チェック ---------- */
   function clearErrors(){
     form.querySelectorAll(".err").forEach(e => e.remove());
     form.querySelectorAll(".invalid").forEach(e => { e.classList.remove("invalid"); e.removeAttribute("aria-invalid"); });
@@ -848,44 +906,54 @@ const DEADLINE = new Date("2026-10-28T23:59:59+09:00");    // 申込締切（GAS
   function collect(){
     const fd = new FormData(form);
     const v = k => (fd.get(k) || "").toString().trim();
-    const isAllergy = v("allergy") === "あり";
-    return {
-      childName:v("childName"), childKana:v("childKana"), grade:v("grade"), siblings:v("siblings"),
+    const common = {
       parentName:v("parentName"), parentKana:v("parentKana"), email:v("email"), email2:v("email2"), tel:v("tel"),
-      accompany:v("accompany"), allergy:v("allergy"),
-      allergens: isAllergy ? fd.getAll("allergens").join("、") : "",
-      allergyOther: isAllergy ? v("allergyOther") : "",
-      anaphylaxis: isAllergy ? v("anaphylaxis") : "",
-      epipen: isAllergy ? v("epipen") : "",
-      allergyNote: isAllergy ? v("allergyNote") : "",
-      health:v("health"), photo:v("photo"), agree: form.agree.checked, website:v("website")
+      accompany:v("accompany"), photo:v("photo"), agree: form.agree.checked, website:v("website")
     };
+    const children = [];
+    for (let i = 1; i <= count; i++){
+      const has = v("allergy_" + i) === "あり";
+      children.push({
+        childName:v("childName_"+i), childKana:v("childKana_"+i), grade:v("grade_"+i),
+        allergy:v("allergy_"+i),
+        allergens: has ? fd.getAll("allergens_"+i).join("、") : "",
+        allergyOther: has ? v("allergyOther_"+i) : "",
+        anaphylaxis: has ? v("anaphylaxis_"+i) : "",
+        epipen: has ? v("epipen_"+i) : "",
+        allergyNote: has ? v("allergyNote_"+i) : "",
+        health:v("health_"+i)
+      });
+    }
+    return {common, children};
   }
 
   function validate(d){
     clearErrors();
     let first = null;
     const fail = (el, msg) => { addError(el, msg); if(!first) first = el; };
-    const need = (id, msg) => { if(!d[id]) fail(document.getElementById(id), msg); };
-    need("childName","お子さまのお名前を入力してください");
-    need("childKana","ふりがなを入力してください");
-    need("grade","学年を選択してください");
-    need("parentName","保護者のお名前を入力してください");
-    need("parentKana","ふりがなを入力してください");
-    if(!d.email) fail(document.getElementById("email"),"メールアドレスを入力してください");
-    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) fail(document.getElementById("email"),"メールアドレスの形式をご確認ください");
-    if(d.email && d.email !== d.email2) fail(document.getElementById("email2"),"確認用のメールアドレスが一致しません");
-    if(!d.tel) fail(document.getElementById("tel"),"電話番号を入力してください");
-    else if(!/^[0-9０-９\-－ー()（） ]{10,16}$/.test(d.tel)) fail(document.getElementById("tel"),"電話番号は数字とハイフンで入力してください");
-    if(!d.accompany) fail(form.querySelector('[name=accompany]'),"同伴の有無を選択してください");
-    if(!d.allergy) fail(form.querySelector('[name=allergy]'),"食物アレルギーの有無を選択してください");
-    if(d.allergy === "あり"){
-      if(!d.allergens && !d.allergyOther) fail(form.querySelector('[name=allergens]'),"アレルギーのある食品を選ぶか、「上記以外」に入力してください");
-      if(!d.anaphylaxis) fail(form.querySelector('[name=anaphylaxis]'),"選択してください");
-      if(!d.epipen) fail(form.querySelector('[name=epipen]'),"選択してください");
-    }
-    if(!d.photo) fail(form.querySelector('[name=photo]'),"掲載についてお選びください");
-    if(!d.agree) fail(document.getElementById("agree"),"注意事項への同意が必要です");
+    const c = d.common;
+    d.children.forEach((ch, k) => {
+      const i = k + 1, who = count > 1 ? `（${i}人目）` : "";
+      if(!ch.childName) fail($("childName_"+i), "お子さまのお名前を入力してください" + who);
+      if(!ch.childKana) fail($("childKana_"+i), "ふりがなを入力してください" + who);
+      if(!ch.grade) fail($("grade_"+i), "学年を選択してください" + who);
+      if(!ch.allergy) fail(form.querySelector(`[name=allergy_${i}]`), "食物アレルギーの有無を選択してください" + who);
+      if(ch.allergy === "あり"){
+        if(!ch.allergens && !ch.allergyOther) fail(form.querySelector(`[name=allergens_${i}]`), "何のアレルギーか、食品を選ぶか入力してください" + who);
+        if(!ch.anaphylaxis) fail(form.querySelector(`[name=anaphylaxis_${i}]`), "選択してください");
+        if(!ch.epipen) fail(form.querySelector(`[name=epipen_${i}]`), "選択してください");
+      }
+    });
+    if(!c.parentName) fail($("parentName"),"保護者のお名前を入力してください");
+    if(!c.parentKana) fail($("parentKana"),"ふりがなを入力してください");
+    if(!c.email) fail($("email"),"メールアドレスを入力してください");
+    else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) fail($("email"),"メールアドレスの形式をご確認ください");
+    if(c.email && c.email !== c.email2) fail($("email2"),"確認用のメールアドレスが一致しません");
+    if(!c.tel) fail($("tel"),"電話番号を入力してください");
+    else if(!/^[0-9０-９\-－ー()（） ]{10,16}$/.test(c.tel)) fail($("tel"),"電話番号は数字とハイフンで入力してください");
+    if(!c.accompany) fail(form.querySelector('[name=accompany]'),"同伴の有無を選択してください");
+    if(!c.photo) fail(form.querySelector('[name=photo]'),"掲載についてお選びください");
+    if(!c.agree) fail($("agree"),"注意事項への同意が必要です");
     if(first){
       formMsg.textContent = "入力内容に不足があります。赤字の項目をご確認ください。";
       formMsg.className = "form-msg ng"; formMsg.hidden = false;
@@ -896,52 +964,91 @@ const DEADLINE = new Date("2026-10-28T23:59:59+09:00");    // 申込締切（GAS
     return true;
   }
 
+  /* ---------- 確認画面 ---------- */
+  function addDl(host, title, pairs){
+    const h = document.createElement("h4"); h.textContent = title;
+    const dl = document.createElement("dl");
+    pairs.forEach(([k, val]) => {
+      if(val === "" || val == null) return;
+      const dt = document.createElement("dt"); dt.textContent = k;
+      const dd = document.createElement("dd"); dd.textContent = val;
+      dl.append(dt, dd);
+    });
+    host.append(h, dl);
+  }
+
   form.addEventListener("submit", e => {
     e.preventDefault();
     const d = collect();
     if(!validate(d)) return;
-    payload = d;
-    const dl = document.getElementById("confirmList");
-    dl.innerHTML = "";
-    const order = ["childName","childKana","grade","siblings","parentName","parentKana","email","tel","accompany","allergy","allergens","allergyOther","anaphylaxis","epipen","allergyNote","health","photo"];
-    order.forEach(k => {
-      if(["siblings","allergens","allergyOther","anaphylaxis","epipen","allergyNote","health"].includes(k) && !d[k]) return;
-      const dt = document.createElement("dt"); dt.textContent = labels[k];
-      const dd = document.createElement("dd"); dd.textContent = d[k];
-      dl.append(dt, dd);
+    const c = d.common;
+    // GASへはお子さま1人につき1件ずつ送信します（従来のGASと同じ項目名）
+    payloads = d.children.map((ch, k) => {
+      const others = d.children.filter((_, j) => j !== k).map(o => `${o.childName}（${o.grade}）`).join("、");
+      const body = Object.assign({}, c, ch, { siblings: others, applyCount: count, childNo: `${k+1}/${count}`, userAgent: navigator.userAgent });
+      delete body.email2;
+      return body;
     });
+    receipts = [];
+
+    const host = $("confirmList"); host.innerHTML = "";
+    d.children.forEach((ch, k) => addDl(host, count > 1 ? `参加するお子さま（${k+1}人目）` : "参加するお子さま", [
+      ["お名前", ch.childName], ["ふりがな", ch.childKana], ["学年", ch.grade],
+      ["食物アレルギー", ch.allergy], ["アレルギーのある食品", ch.allergens], ["上記以外・詳しい内容", ch.allergyOther],
+      ["アナフィラキシーの経験", ch.anaphylaxis], ["エピペン®の携帯", ch.epipen], ["症状など", ch.allergyNote],
+      ["スタッフに伝えておきたいこと", ch.health]
+    ]));
+    addDl(host, "保護者の方・その他", [
+      ["保護者のお名前", c.parentName], ["ふりがな", c.parentKana], ["メールアドレス", c.email], ["当日の電話番号", c.tel],
+      ["ツアーへの同伴", c.accompany], ["写真・映像の掲載", c.photo]
+    ]);
     form.hidden = true; confirmView.hidden = false; sendMsg.hidden = true;
-    document.getElementById("formCard").scrollIntoView({behavior:"smooth"});
+    backBtn.disabled = false; sendBtn.disabled = false; sendBtn.textContent = "この内容で申し込む";
+    card.scrollIntoView({behavior:"smooth"});
   });
 
-  document.getElementById("backBtn").addEventListener("click", () => {
+  backBtn.addEventListener("click", () => {
     confirmView.hidden = true; form.hidden = false;
-    document.getElementById("formCard").scrollIntoView({behavior:"smooth"});
+    card.scrollIntoView({behavior:"smooth"});
   });
 
+  /* ---------- 送信 ---------- */
   sendBtn.addEventListener("click", async () => {
-    if(!payload) return;
+    if(!payloads.length) return;
     if(!/^https:\/\/script\.google\.com\//.test(GAS_URL)){
       sendMsg.textContent = "送信先（GAS_URL）が設定されていません。管理者の方は index.html の設定をご確認ください。";
       sendMsg.hidden = false; return;
     }
-    sendBtn.disabled = true; sendBtn.textContent = "送信しています…"; sendMsg.hidden = true;
+    sendBtn.disabled = true; backBtn.disabled = true; sendBtn.textContent = "送信しています…"; sendMsg.hidden = true;
     try{
-      const body = Object.assign({}, payload); delete body.email2;
-      body.userAgent = navigator.userAgent;
-      // text/plain で送るとCORSのプリフライトが発生せず、GASで受け取れます
-      const res = await fetch(GAS_URL, { method:"POST", body: JSON.stringify(body) });
-      const json = await res.json();
-      if(!json.ok) throw new Error(json.message || "送信に失敗しました");
-      document.getElementById("receiptNo").textContent = json.receiptNo;
+      for (let k = 0; k < payloads.length; k++){
+        if (receipts[k]) continue;   // 送信済みのお子さまは再送しない
+        // text/plain で送るとCORSのプリフライトが発生せず、GASで受け取れます
+        const res = await fetch(GAS_URL, { method:"POST", body: JSON.stringify(payloads[k]) });
+        const json = await res.json();
+        if(!json.ok) throw new Error(json.message || "送信に失敗しました");
+        receipts[k] = json.receiptNo;
+      }
+      const no = $("receiptNo");
+      if (payloads.length === 1){
+        no.classList.remove("multi"); no.textContent = receipts[0];
+        $("doneMail").innerHTML = "ご入力のメールアドレスに受付確認メールをお送りしました。<br>抽選結果は11月4日（水）までにお知らせします。";
+      } else {
+        no.classList.add("multi");
+        no.textContent = payloads.map((p, k) => `${p.childName} さん：${receipts[k]}`).join("\n");
+        $("doneMail").innerHTML = "ご入力のメールアドレスに、お子さまお一人につき1通ずつ受付確認メールをお送りしました。<br>抽選結果は11月4日（水）までにお知らせします。";
+      }
       confirmView.hidden = true; doneView.hidden = false;
-      doneView.focus(); document.getElementById("formCard").scrollIntoView({behavior:"smooth"});
+      doneView.focus(); card.scrollIntoView({behavior:"smooth"});
     }catch(err){
-      sendMsg.textContent = (err && err.message && !/fetch|JSON|network/i.test(err.message))
+      const done = receipts.filter(Boolean).length;
+      let msg = (err && err.message && !/fetch|JSON|network/i.test(err.message))
         ? err.message
-        : "通信に失敗しました。時間をおいてもう一度お試しいただくか、加納岩総合病院（0553-22-2511）へお電話ください。";
-      sendMsg.hidden = false;
+        : "通信に失敗しました。時間をおいてもう一度お試しいただくか、" + CONTACT + "へお電話ください。";
+      if (done > 0) msg += `（${done}人目までは受付済みです。もう一度「この内容で申し込む」を押すと、残りのお子さまのみ送信します）`;
+      sendMsg.textContent = msg; sendMsg.hidden = false;
       sendBtn.disabled = false; sendBtn.textContent = "この内容で申し込む";
+      backBtn.disabled = done > 0;
     }
   });
 })();
