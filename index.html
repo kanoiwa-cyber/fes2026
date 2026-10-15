@@ -188,7 +188,14 @@ p{margin:0 0 1em}
 .lecture{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0}
 .lecture dt{font-weight:900;background:var(--ink);color:#fff;border-radius:6px;padding:0 10px;font-size:14px;height:max-content;margin-top:4px}
 .lecture dd{margin:0}
-.lecture .big{font-size:24px;font-weight:900;line-height:1.4}
+.lecture .big{display:block;font-size:24px;font-weight:900;line-height:1.4}
+.lecture .sub{display:block;font-weight:700;color:var(--ink-soft)}
+.booth .grp th{background:var(--mint-bg);font-weight:900;font-size:15.5px;border-bottom:1.5px solid var(--ink)}
+.booth .where{display:inline-block;margin-left:12px;font-size:13px;font-weight:700;color:var(--mint-ink)}
+.booth .note{display:block;font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.warn{color:#C62828;font-weight:900}
+.notes li.warn::before{color:#C62828}
+.mask-note{margin:20px 0 0;text-align:center;color:#C62828;font-weight:900;font-size:17px;background:#FFF0F0;border:2px solid #E57373;border-radius:12px;padding:10px 16px}
 .stamp{display:flex;gap:18px;align-items:center;background:#FFF8DD;border-radius:14px;padding:16px 20px;margin-top:28px}
 .stamp svg{flex:none;width:56px}
 
@@ -427,39 +434,45 @@ footer a{color:#fff}
       <dt>会場</dt><dd>加納岩総合病院・日下部記念病院・正面駐車場<br><span class="hint">山梨市上神内川1309</span></dd>
       <dt>入場料</dt><dd>無料（どなたでもご参加いただけます）</dd>
       <dt>主催</dt><dd>加納岩健康フェス2026実行委員会</dd>
+      <dt>後援</dt><dd>山梨市</dd>
       <dt>お問い合わせ</dt><dd>加納岩健康フェス2026実行委員会<br><a href="tel:0553399720">0553-39-9720</a></dd>
     </dl>
   </div>
 </section>
 
 <!-- ================= EVENTS ================= -->
-<!-- 健康チェックブース・講演・体験コーナーはチラシ（OCR）受領後に内容を更新予定 -->
 <section id="events">
   <div class="wrap">
     <h2 class="sec-title">イベント内容</h2>
-    <p class="lead">各コーナーの開催場所は、当日の会場受付でご案内します。<br>内容は変更になる場合があります。</p>
+    <p class="lead">健康チェックブースは、加納岩総合病院・日下部記念病院の1階で行います。<br>そのほかの開催場所は当日の会場受付でご案内します。内容は変更になる場合があります。</p>
 
     <div class="ev-grid">
       <div class="block wide">
         <h3><span class="dot" style="background:var(--mint)"></span>健康チェックブース<span class="tag">無料</span></h3>
         <div class="tbl-wrap">
           <table class="booth">
-            <thead><tr><th scope="col">担当</th><th scope="col">内容</th></tr></thead>
+            <thead><tr><th scope="col">部門</th><th scope="col">ブース内容</th></tr></thead>
             <tbody>
+              <tr class="grp"><th colspan="2" scope="rowgroup">加納岩総合病院<span class="where">場所：加納岩総合病院 1階</span></th></tr>
+              <tr><td>看護部</td><td>「人生会議、知っていますか？」<span class="note">〜あなたの“もしも”を大切な人と考える時間〜</span></td></tr>
+              <tr><td>薬剤課</td><td>お薬相談所！</td></tr>
               <tr><td>放射線課</td><td>骨密度測定<span class="tag pink">当日整理券配布</span></td></tr>
-              <tr><td>薬剤課</td><td>お薬相談所</td></tr>
+              <tr><td>検査課</td><td>血管の硬さ・血管年齢、測りませんか？</td></tr>
               <tr><td>リハビリテーション課</td><td>運動機能の健康チェック</td></tr>
               <tr><td>栄養課</td><td>栄養相談</td></tr>
               <tr><td>栄養課</td><td>非常食を作ってみよう！食べてみよう！</td></tr>
-              <tr><td>検査課</td><td>血管の硬さ・血管年齢を測ってみませんか？</td></tr>
-              <tr><td>糖尿病連携委員会</td><td>糖尿病啓発コーナー</td></tr>
-              <tr><td>看護部</td><td>もしもの前に、今話そう（人生会議）</td></tr>
-              <tr><td>山梨リハビリテーション病院</td><td>フレイルチェックと栄養相談</td></tr>
-              <tr><td>在宅医療センター</td><td>在宅医療センターのご紹介</td></tr>
+              <tr><td>在宅医療センター</td><td>在宅医療センターの紹介</td></tr>
               <tr><td>情報サービス課</td><td>脳トレゲーム</td></tr>
-              <tr><td>つくしデイケア（日下部記念病院）</td><td>デイケアのご紹介</td></tr>
-              <tr><td>日下部記念病院</td><td>精神科作業療法のご紹介</td></tr>
-              <tr><td>認知症疾患医療センター</td><td>認知症VR当事者体験<span class="tag pink">当日整理券配布</span></td></tr>
+              <tr><td>庶務課・広報委員会</td><td>★公式マスコットキャラクター総選挙★</td></tr>
+              <tr><td>糖尿病連携委員会</td><td>糖尿病啓発コーナー（血糖測定）</td></tr>
+
+              <tr class="grp"><th colspan="2" scope="rowgroup">山梨リハビリテーション病院<span class="where">場所：加納岩総合病院 1階</span></th></tr>
+              <tr><td>リハケアセンターきらり<br>認定栄養ケアステーション結び<br>リハビリテーション部</td><td>簡単♪フレイルチェックとワンポイントアドバイス！</td></tr>
+
+              <tr class="grp"><th colspan="2" scope="rowgroup">日下部記念病院<span class="where">場所：日下部記念病院 1階</span></th></tr>
+              <tr><td>行事委員会</td><td>精神科紹介（革細工・心理体験）<span class="tag pink">当日整理券配布</span><span class="note">作品販売もあります</span></td></tr>
+              <tr><td>つくし教室</td><td>デイケアの紹介</td></tr>
+              <tr><td>認知症疾患医療センター</td><td>認知症VR体験<span class="tag pink">当日整理券配布</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -468,20 +481,20 @@ footer a{color:#fff}
       <div class="block">
         <h3><span class="dot" style="background:var(--sky)"></span>講演</h3>
         <dl class="lecture">
-          <dt>演題</dt><dd class="big">脳梗塞について</dd>
-          <dt>講師</dt><dd>加納岩総合病院 脳神経外科医師　中村 真</dd>
+          <dt>演題</dt><dd><span class="big">脳卒中から脳を守る！</span><span class="sub">〜今日からできる脳の健康習慣〜</span></dd>
+          <dt>講師</dt><dd>加納岩総合病院 脳神経外科 医長　中村 真</dd>
           <dt>時間</dt><dd>13:30〜14:30（開場 13:00）</dd>
           <dt>会場</dt><dd>加納岩総合病院 2階 大会議室</dd>
         </dl>
       </div>
 
       <div class="block">
-        <h3><span class="dot" style="background:var(--yellow)"></span>体験コーナー</h3>
+        <h3><span class="dot" style="background:var(--yellow)"></span>体験</h3>
         <ul class="list" style="--c:var(--yellow)">
-          <li><a href="#tour">わくわく病院探検ツアー</a><span class="tag pink">事前申込制</span><span class="note">小中学生対象。手術室見学や調剤体験など</span></li>
+          <li><a href="#tour">わくわく病院探検ツアー</a><span class="tag pink">事前申込・抽選</span><span class="note">小中学生対象。手術室見学や調剤体験など。11月1日（日）までにお申し込みください</span></li>
           <li>わくわく広場♪<span class="note">スーパーボールすくいなど</span></li>
-          <li>世界チャンピオン 髙橋靖彦選手によるラート体験</li>
-          <li>AED体験<span class="note">加納岩総合病院 総合受付前で実施（協力：日本光電工業株式会社）</span></li>
+          <li>ラート世界チャンピオン 髙橋靖彦選手によるラート体験<span class="note">10:00〜13:00</span></li>
+          <li>AED体験<span class="note">11:00〜／13:00〜（各45分程度）　提供：日本光電工業株式会社</span></li>
           <li>ワンコインマッサージ by mukamanis<span class="note">当日受付順</span></li>
         </ul>
       </div>
@@ -489,11 +502,11 @@ footer a{color:#fff}
       <div class="block wide">
         <h3><span class="dot" style="background:var(--pink)"></span>おまつり広場</h3>
         <ul class="list" style="--c:var(--pink);columns:2 280px;column-gap:32px">
-          <li>山梨市民吹奏楽団 演奏</li>
-          <li>日川高等学校 書道部パフォーマンス<span class="note">雨天時は中止します</span></li>
-          <li>わたがし・フランクフルト 無料配布</li>
+          <li>山梨市民吹奏楽団 演奏<span class="note">10:30〜11:30</span></li>
+          <li>日川高等学校 書道部パフォーマンス<span class="note">12:00〜12:30（雨天時は中止します）</span></li>
+          <li>わたがし・フランクフルト 無料配布<span class="note">日下部記念病院</span></li>
           <li>キッチンカー・パン・コーヒー販売</li>
-          <li>救急車・パトカーなど働くクルマ体験</li>
+          <li>救急車・パトカーなど はたらく車の展示</li>
         </ul>
       </div>
     </div>
@@ -502,6 +515,7 @@ footer a{color:#fff}
       <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="25" fill="#FFF" stroke="#EE7F86" stroke-width="3"/><circle cx="28" cy="28" r="18" fill="none" stroke="#EE7F86" stroke-width="1.5" stroke-dasharray="3 3"/><path d="M19 29l6 6 12-14" fill="none" stroke="#EE7F86" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div><b>スタンプラリー</b><br>会場を回ってスタンプを集めると、粗品をプレゼントします。スタンプカードは会場受付でお渡しします。</div>
     </div>
+    <p class="mask-note">※感染対策のため、病院内ではマスクの着用をお願いいたします</p>
   </div>
 </section>
 
@@ -512,13 +526,15 @@ footer a{color:#fff}
     <p class="lead">健康チェックブース・キッチンカーなどは10:00〜15:00の間いつでもお楽しみいただけます。</p>
     <ol class="tt">
       <li style="--c:var(--coral)"><time>10:00</time><div><b>開会・受付スタート</b><span>受付でスタンプカードと記念品をお渡しします</span></div></li>
+      <li style="--c:var(--pink)"><time>10:00</time><div><b>ラート体験</b><span>ラート世界チャンピオン 髙橋靖彦選手（10:00〜13:00）</span></div></li>
       <li style="--c:var(--sky)"><time>10:30</time><div><b>山梨市民吹奏楽団 演奏</b><span>おまつり広場（10:30〜11:30）</span></div></li>
       <li style="--c:var(--yellow)"><time>10:40</time><div><b>わくわく病院探検ツアー</b><span>10:40 受付開始／10:50〜12:40 ツアー（事前申込の方のみ）</span></div></li>
+      <li style="--c:var(--mint)"><time>11:00</time><div><b>AED体験（1回目）</b><span>45分程度</span></div></li>
       <li style="--c:var(--mint)"><time>12:00</time><div><b>日川高等学校 書道部パフォーマンス</b><span>おまつり広場（12:00〜12:30）※雨天中止</span></div></li>
-      <li style="--c:var(--lilac)"><time>13:30</time><div><b>講演「脳梗塞について」</b><span>加納岩総合病院 2階 大会議室（13:30〜14:30／開場 13:00）</span></div></li>
+      <li style="--c:var(--mint)"><time>13:00</time><div><b>AED体験（2回目）</b><span>45分程度</span></div></li>
+      <li style="--c:var(--lilac)"><time>13:30</time><div><b>講演「脳卒中から脳を守る！」</b><span>加納岩総合病院 2階 大会議室（13:30〜14:30／開場 13:00）</span></div></li>
       <li style="--c:var(--coral)"><time>15:00</time><div><b>閉会</b></div></li>
     </ol>
-    <p class="hint" style="margin-top:16px">ラート体験・AED体験の時間は決まり次第お知らせします。</p>
   </div>
 </section>
 
@@ -532,7 +548,7 @@ footer a{color:#fff}
         <p>ふだんは入れない手術室や、お薬をつくる調剤の様子をのぞいてみよう！看護師さんといっしょに体の測定をしたり、レントゲンのしくみを知ったり、病院のお仕事を体験できるツアーです。</p>
         <dl class="facts">
           <dt>対象</dt><dd>小学生・中学生（保護者の同伴可）</dd>
-          <dt>定員</dt><dd>10名（5名×2班）<br><span class="hint">申込多数の場合は抽選。結果は11月4日（水）までにメールでお知らせします</span></dd>
+          <dt>定員</dt><dd>10名（5名×2班）<br><span class="hint">申込多数の場合は抽選。当選された方には11月4日（水）までにメールでご連絡します</span></dd>
           <dt>時間</dt><dd>10:50〜12:40<br><span class="hint">※10:40から受付を開始します</span></dd>
           <dt>集合</dt><dd>10:40までに加納岩総合病院 会計窓口前</dd>
           <dt>参加費</dt><dd>無料</dd>
@@ -554,7 +570,7 @@ footer a{color:#fff}
       <div class="form-card" id="formCard">
         <div id="formClosed" class="closed" hidden>
           <h3>受付は終了しました</h3>
-          <p style="margin:0">たくさんのお申込みありがとうございました。<br>抽選結果は11月4日（水）までにメールでお知らせします。</p>
+          <p style="margin:0">たくさんのお申込みありがとうございました。<br>当選された方には、11月4日（水）までにメールでご連絡します。</p>
         </div>
 
         <!-- STEP 1：申込人数の選択 -->
@@ -619,13 +635,13 @@ footer a{color:#fff}
             <legend><span class="dot" style="background:var(--mint)"></span>注意事項の確認</legend>
             <div class="notice-box" tabindex="0" aria-label="注意事項">
               <ul>
-                <li>申込多数の場合は抽選とし、11月4日（水）までに結果をメールでお知らせします。</li>
+                <li>申込多数の場合は抽選とし、当選された方にのみ11月4日（水）までにメールでご連絡します（落選のご連絡はいたしません）。</li>
                 <li>当日は10:40から受付を開始します。10:40までに加納岩総合病院 会計窓口前で受付を済ませてください。</li>
                 <li>必ずスタッフと一緒に行動し、立入禁止の場所には入らないでください。</li>
                 <li>院内では走らず、大きな声を出さないようお願いします。医療機器や備品にはスタッフの許可なく触れないでください。</li>
                 <li>患者さんの診療が優先となります。当日の状況により、ルートや体験内容を変更・中止する場合があります。</li>
                 <li>写真撮影はスタッフが許可した場所・対象に限ります。患者さんや職員が写り込まないようご配慮ください。</li>
-                <li>発熱や咳など体調がすぐれない場合は、参加をお控えください。院内ではマスクの着用をお願いします。</li>
+                <li>発熱や咳など体調がすぐれない場合は、参加をお控えください。<span class="warn">院内ではマスクの着用をお願いいたします。</span></li>
                 <li>ツアー中に気分が悪くなった場合やけが・迷子などの際は、すぐに近くのスタッフへお知らせください。</li>
                 <li>ご記入いただいた個人情報は、本ツアーの運営と連絡のみに使用します。</li>
               </ul>
@@ -653,7 +669,7 @@ footer a{color:#fff}
           <h3>お申込みを受け付けました</h3>
           <p style="margin-bottom:4px">受付番号</p>
           <p class="no" id="receiptNo">―</p>
-          <p id="doneMail">ご入力のメールアドレスに受付確認メールをお送りしました。<br>抽選結果は11月4日（水）までにお知らせします。</p>
+          <p id="doneMail">ご入力のメールアドレスに受付確認メールをお送りしました。<br>当選された方には、11月4日（水）までにメールでご連絡します。</p>
           <p class="hint">確認メールが届かない場合は、迷惑メールフォルダをご確認のうえ、加納岩健康フェス2026実行委員会（0553-39-9720）へお問い合わせください。</p>
         </div>
       </div>
@@ -674,7 +690,7 @@ footer a{color:#fff}
             <!-- 駅前通り -->
             <rect x="10" y="296" width="500" height="34" rx="8" fill="#EEEAF3"/>
             <text x="22" y="318" font-size="13" font-weight="700" fill="#655F72">← 山梨市駅</text>
-            <text x="385" y="319" font-size="14" font-weight="900" fill="#3F3A4A" text-anchor="middle">駅前通り</text>
+            <text x="239" y="319" font-size="14" font-weight="900" fill="#3F3A4A" text-anchor="middle">駅前通り</text>
             <text x="498" y="318" font-size="13" font-weight="700" fill="#655F72" text-anchor="end">山梨市役所 →</text>
             <!-- 駐車場 -->
             <rect x="20" y="20" width="115" height="115" rx="10" fill="#E4EEF9" stroke="#9DB7D6"/>
@@ -731,7 +747,7 @@ footer a{color:#fff}
     <h2 class="sec-title">ご来場の皆さまへ</h2>
     <ul class="notes">
       <li>各コーナー・イベントの開催場所は、会場受付でご案内します。</li>
-      <li>感染対策のため、病院内ではマスクの着用をお願いします。</li>
+      <li class="warn">感染対策のため、病院内ではマスクの着用をお願いいたします。</li>
       <li>お車の場合、会場内は一方通行です。駅前通りからお入りください。駐車場に限りがあるため、乗り合わせや公共交通機関のご利用にご協力ください。</li>
       <li>当日も通常どおり入院患者さんがいらっしゃいます。院内では静かにお過ごしください。</li>
       <li>おむつ替え・授乳のスペースは、加納岩総合病院1階 ATM横にございます。</li>
@@ -746,7 +762,7 @@ footer a{color:#fff}
     <div class="foot">
       <div>
         <h2>加納岩健康フェス2026</h2>
-        <p style="margin:0">主催：加納岩健康フェス2026実行委員会</p>
+        <p style="margin:0">主催：加納岩健康フェス2026実行委員会　後援：山梨市</p>
         <p style="margin:0">社会医療法人加納岩（加納岩総合病院・日下部記念病院・山梨リハビリテーション病院）</p>
       </div>
       <address>
@@ -765,7 +781,7 @@ footer a{color:#fff}
 /* ============================================================
    設定：GASをウェブアプリとしてデプロイした後、URLを貼り付けてください
    ============================================================ */
-const GAS_URL = "ここにGASウェブアプリのURLを貼り付け";   // 例）https://script.google.com/macros/s/xxxxxxxx/exec
+const GAS_URL = "https://script.google.com/macros/s/AKfycbxjqhsYXA-Fc9Ikg3uJ3gw3YIs3qHJuxpdpHrNLqzKmnKIyahGcRJqdU_CbOEAjs3fG/exec";
 const DEADLINE = new Date("2026-11-01T23:59:59+09:00");    // 申込締切（GAS側の設定も 11/1 に合わせてください）
 const MAX_CHILDREN = 3;                                     // 1回で申し込める最大人数
 const CONTACT = "加納岩健康フェス2026実行委員会（0553-39-9720）";
@@ -807,7 +823,7 @@ const CONTACT = "加納岩健康フェス2026実行委員会（0553-39-9720）";
   const confirmView = $("confirmView"), doneView = $("doneView");
   const formMsg = $("formMsg"), sendMsg = $("sendMsg"), sendBtn = $("sendBtn"), backBtn = $("backBtn");
   const card = $("formCard");
-  let count = 1, payloads = [], receipts = [];
+  let count = 1, payload = null;
 
   if (new Date() > DEADLINE) { countStep.hidden = true; form.hidden = true; closed.hidden = false; return; }
 
@@ -982,14 +998,9 @@ const CONTACT = "加納岩健康フェス2026実行委員会（0553-39-9720）";
     const d = collect();
     if(!validate(d)) return;
     const c = d.common;
-    // GASへはお子さま1人につき1件ずつ送信します（従来のGASと同じ項目名）
-    payloads = d.children.map((ch, k) => {
-      const others = d.children.filter((_, j) => j !== k).map(o => `${o.childName}（${o.grade}）`).join("、");
-      const body = Object.assign({}, c, ch, { siblings: others, applyCount: count, childNo: `${k+1}/${count}`, userAgent: navigator.userAgent });
-      delete body.email2;
-      return body;
-    });
-    receipts = [];
+    // 保護者情報1件＋お子さま全員分（children）を、1回の送信にまとめます
+    payload = Object.assign({}, c, { applyCount: count, children: d.children, userAgent: navigator.userAgent });
+    delete payload.email2;
 
     const host = $("confirmList"); host.innerHTML = "";
     d.children.forEach((ch, k) => addDl(host, count > 1 ? `参加するお子さま（${k+1}人目）` : "参加するお子さま", [
@@ -1014,41 +1025,29 @@ const CONTACT = "加納岩健康フェス2026実行委員会（0553-39-9720）";
 
   /* ---------- 送信 ---------- */
   sendBtn.addEventListener("click", async () => {
-    if(!payloads.length) return;
+    if(!payload) return;
     if(!/^https:\/\/script\.google\.com\//.test(GAS_URL)){
       sendMsg.textContent = "送信先（GAS_URL）が設定されていません。管理者の方は index.html の設定をご確認ください。";
       sendMsg.hidden = false; return;
     }
     sendBtn.disabled = true; backBtn.disabled = true; sendBtn.textContent = "送信しています…"; sendMsg.hidden = true;
     try{
-      for (let k = 0; k < payloads.length; k++){
-        if (receipts[k]) continue;   // 送信済みのお子さまは再送しない
-        // text/plain で送るとCORSのプリフライトが発生せず、GASで受け取れます
-        const res = await fetch(GAS_URL, { method:"POST", body: JSON.stringify(payloads[k]) });
-        const json = await res.json();
-        if(!json.ok) throw new Error(json.message || "送信に失敗しました");
-        receipts[k] = json.receiptNo;
-      }
-      const no = $("receiptNo");
-      if (payloads.length === 1){
-        no.classList.remove("multi"); no.textContent = receipts[0];
-        $("doneMail").innerHTML = "ご入力のメールアドレスに受付確認メールをお送りしました。<br>抽選結果は11月4日（水）までにお知らせします。";
-      } else {
-        no.classList.add("multi");
-        no.textContent = payloads.map((p, k) => `${p.childName} さん：${receipts[k]}`).join("\n");
-        $("doneMail").innerHTML = "ご入力のメールアドレスに、お子さまお一人につき1通ずつ受付確認メールをお送りしました。<br>抽選結果は11月4日（水）までにお知らせします。";
-      }
+      // text/plain で送るとCORSのプリフライトが発生せず、GASで受け取れます
+      const res = await fetch(GAS_URL, { method:"POST", body: JSON.stringify(payload) });
+      const json = await res.json();
+      if(!json.ok) throw new Error(json.message || "送信に失敗しました");
+      $("receiptNo").textContent = json.receiptNo;
+      $("doneMail").innerHTML = (count > 1 ? `お子さま${count}人分のお申込みを、1件として受け付けました。<br>` : "")
+        + "ご入力のメールアドレスに受付確認メールをお送りしました。<br>当選された方には、11月4日（水）までにメールでご連絡します。";
+      payload = null;   // 二重送信の防止
       confirmView.hidden = true; doneView.hidden = false;
       doneView.focus(); card.scrollIntoView({behavior:"smooth"});
     }catch(err){
-      const done = receipts.filter(Boolean).length;
-      let msg = (err && err.message && !/fetch|JSON|network/i.test(err.message))
+      sendMsg.textContent = (err && err.message && !/fetch|JSON|network/i.test(err.message))
         ? err.message
         : "通信に失敗しました。時間をおいてもう一度お試しいただくか、" + CONTACT + "へお電話ください。";
-      if (done > 0) msg += `（${done}人目までは受付済みです。もう一度「この内容で申し込む」を押すと、残りのお子さまのみ送信します）`;
-      sendMsg.textContent = msg; sendMsg.hidden = false;
-      sendBtn.disabled = false; sendBtn.textContent = "この内容で申し込む";
-      backBtn.disabled = done > 0;
+      sendMsg.hidden = false;
+      sendBtn.disabled = false; backBtn.disabled = false; sendBtn.textContent = "この内容で申し込む";
     }
   });
 })();
