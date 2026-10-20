@@ -103,7 +103,7 @@ a{color:var(--coral-ink)}
 .cd-unit:nth-child(2) .cd-num{background:#D7E8F8}
 .cd-unit:nth-child(3) .cd-num{background:#FCF0C4}
 .cd-unit:nth-child(4) .cd-num{background:#D3F1E5}
-.cd-u{font-weight:900;font-size:14px}
+.cd-u{font-weight:900;font-size:14px;white-space:nowrap}
 .cd-msg{margin:0;font-weight:900;font-size:clamp(18px,3vw,24px);line-height:1.5}
 .cd-msg small{display:block;font-size:13px;color:var(--ink-soft);font-weight:700}
 @media (max-width:420px){.cd-units{gap:5px}.cd-num{font-size:24px;padding:2px 4px}.cd-u{font-size:12px}.countdown{padding:10px 12px 12px}}
@@ -124,6 +124,11 @@ p{margin:0 0 1em}
 .news time{font-weight:700;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 .alert{margin-top:20px;border-left:6px solid var(--yellow);background:#FFFBEA;padding:14px 18px;border-radius:0 10px 10px 0}
 @media (max-width:560px){.news li{grid-template-columns:1fr;gap:0}}
+
+/* 改行位置：文節の途中で改行しない（<wbr> の位置でのみ改行） */
+.bx{word-break:keep-all;overflow-wrap:break-word}
+.nw,.req,.opt,.tag,.child-num{white-space:nowrap}
+body{line-break:strict}
 
 /* greeting */
 .greeting{background:#fff;border:1.5px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,40px) clamp(18px,4.5vw,48px);box-shadow:0 2px 0 var(--line)}
@@ -300,16 +305,16 @@ footer a{color:#fff}
 
 <header class="site-head">
   <div class="wrap">
-    <a class="logo" href="#top"><small>社会医療法人加納岩</small>加納岩健康フェス2026</a>
+    <a class="logo" href="#top"><small><span class="bx">社会医療法人加納岩</span></small><span class="bx">加納岩健康フェス2026</span></a>
     <nav class="gnav" aria-label="ページ内メニュー">
       <ul>
-        <li><a href="#news">お知らせ</a></li>
-        <li><a href="#greeting">ごあいさつ</a></li>
-        <li><a href="#about">開催概要</a></li>
-        <li><a href="#events">イベント内容</a></li>
-        <li><a href="#timetable">タイムテーブル</a></li>
-        <li><a href="#access">アクセス</a></li>
-        <li><a class="cta" href="#tour">病院探検ツアー申込</a></li>
+        <li><a href="#news"><span class="bx">お知らせ</span></a></li>
+        <li><a href="#greeting"><span class="bx">ごあいさつ</span></a></li>
+        <li><a href="#about"><span class="bx">開催概要</span></a></li>
+        <li><a href="#events"><span class="bx">イベント内容</span></a></li>
+        <li><a href="#timetable"><span class="bx">タイムテーブル</span></a></li>
+        <li><a href="#access"><span class="bx">アクセス</span></a></li>
+        <li><a class="cta" href="#tour"><span class="bx">病院探検ツアー申込</span></a></li>
       </ul>
     </nav>
   </div>
@@ -327,7 +332,7 @@ footer a{color:#fff}
     </picture>
   </h1>
   <div class="countdown" id="countdown" aria-live="off">
-    <p class="cd-label" id="cdLabel">開催まであと</p>
+    <p class="cd-label" id="cdLabel"><span class="bx">開催まであと</span></p>
     <p class="cd-units" id="cdUnits" role="timer" aria-label="開催までの残り時間">
       <span class="cd-unit"><span class="cd-num" id="cdD">--</span><span class="cd-u">日</span></span>
       <span class="cd-unit"><span class="cd-num" id="cdH">--</span><span class="cd-u">時間</span></span>
@@ -341,14 +346,14 @@ footer a{color:#fff}
 <!-- ================= NEWS ================= -->
 <section id="news">
   <div class="narrow">
-    <h2 class="sec-title">お知らせ</h2>
+    <h2 class="sec-title"><span class="bx">お知らせ</span></h2>
     <!-- 新しいお知らせは一番上に <li> を追加してください -->
     <ul class="news">
-      <li><time datetime="2026-10-05">2026.10.05</time><span>特設ページを公開しました。「わくわく病院探検ツアー」の参加申込を受け付けています（11月1日（日）まで）。</span></li>
+      <li><time datetime="2026-10-05">2026.10.05</time><span><span class="bx">特設ページを<wbr>公開しました。<wbr>「わくわく<wbr>病院探検ツアー」の<wbr>参加申込を<wbr>受け付けています<wbr>（11月1日<wbr>（日）まで）。</span></span></li>
     </ul>
     <div class="alert">
-      <b>荒天時の対応について</b><br>
-      荒天による中止や内容の変更、駐車場のご案内は、当日朝までにこのページでお知らせします。お出かけ前にご確認ください。
+      <b><span class="bx">荒天時の<wbr>対応に<wbr>ついて</span></b><br>
+      <span class="bx">荒天に<wbr>よる<wbr>中止や<wbr>内容の<wbr>変更、<wbr>駐車場の<wbr>ご案内は、<wbr>当日朝までに<wbr>この<wbr>ページで<wbr>お知らせします。<wbr>お出かけ前に<wbr>ご確認ください。</span>
     </div>
   </div>
 </section>
@@ -368,8 +373,8 @@ footer a{color:#fff}
       <div class="sign">
         <p class="sign-date">2026年10月</p>
         <dl>
-          <dt>加納岩健康フェス2026実行委員長</dt><dd>中澤 良太</dd>
-          <dt>社会医療法人加納岩　理事長</dt><dd>中澤 良英</dd>
+          <dt>加納岩健康フェス2026実行委員長</dt><dd>中澤 良太</dd>
+          <dt>社会医療法人加納岩　理事長</dt><dd>中澤 良英</dd>
         </dl>
       </div>
     </div>
@@ -379,15 +384,15 @@ footer a{color:#fff}
 <!-- ================= ABOUT ================= -->
 <section id="about" class="alt">
   <div class="narrow">
-    <h2 class="sec-title">開催概要</h2>
-    <p class="lead">10年ぶりに「健康まつり」が帰ってきます。健康チェックや脳神経外科医師による無料講演、日川高等学校書道部のパフォーマンス、山梨市民吹奏楽団の演奏、キッチンカーなど、盛りだくさんの内容です。ご家族そろってお気軽にお越しください。</p>
+    <h2 class="sec-title"><span class="bx">開催概要</span></h2>
+    <p class="lead"><span class="bx">10年ぶりに<wbr>「健康まつり」が<wbr>帰ってきます。<wbr>健康チェックや<wbr>脳神経外科医師に<wbr>よる<wbr>無料講演、<wbr>日川高等学校書道部の<wbr>パフォーマンス、<wbr>山梨市民吹奏楽団の<wbr>演奏、<wbr>キッチンカーなど、<wbr>盛りだくさんの<wbr>内容です。<wbr>ご家族そろって<wbr>お気軽に<wbr>お越しください。</span></p>
     <dl class="overview">
-      <dt>日時</dt><dd><strong>2026年11月8日（日）</strong>10:00〜15:00</dd>
-      <dt>会場</dt><dd>加納岩総合病院・日下部記念病院・正面駐車場<br><span class="hint">山梨市上神内川1309</span></dd>
-      <dt>入場料</dt><dd>無料（どなたでもご参加いただけます）</dd>
-      <dt>主催</dt><dd>加納岩健康フェス2026実行委員会</dd>
+      <dt>日時</dt><dd><strong><span class="bx">2026年11月8日<wbr>（日）</span></strong>10:00〜15:00</dd>
+      <dt>会場</dt><dd><span class="bx">加納岩総合病院・日下部記念病院・正面駐車場</span><br><span class="hint"><span class="bx">山梨市上神内川1309</span></span></dd>
+      <dt>入場料</dt><dd><span class="bx">無料<wbr>（どなたでも<wbr>ご参加いただけます）</span></dd>
+      <dt>主催</dt><dd><span class="bx">加納岩健康フェス2026実行委員会</span></dd>
       <dt>後援</dt><dd>山梨市</dd>
-      <dt>お問い合わせ</dt><dd>加納岩健康フェス2026実行委員会<br><a href="tel:0553399720">0553-39-9720</a></dd>
+      <dt><span class="bx">お問い合わせ</span></dt><dd><span class="bx">加納岩健康フェス2026実行委員会</span><br><a href="tel:0553399720">0553-39-9720</a></dd>
     </dl>
   </div>
 </section>
@@ -395,36 +400,36 @@ footer a{color:#fff}
 <!-- ================= EVENTS ================= -->
 <section id="events">
   <div class="wrap">
-    <h2 class="sec-title">イベント内容</h2>
-    <p class="lead">健康チェックブースは、加納岩総合病院・日下部記念病院の1階で行います。<br>そのほかの開催場所は当日の会場受付でご案内します。内容は変更になる場合があります。</p>
+    <h2 class="sec-title"><span class="bx">イベント内容</span></h2>
+    <p class="lead"><span class="bx">健康チェックブースは、<wbr>加納岩総合病院・日下部記念病院の<wbr>1階で<wbr>行います。</span><br><span class="bx">その<wbr>ほかの<wbr>開催場所は<wbr>当日の<wbr>会場受付で<wbr>ご案内します。<wbr>内容は<wbr>変更に<wbr>なる<wbr>場合が<wbr>あります。</span></p>
 
     <div class="ev-grid">
       <div class="block wide">
-        <h3><span class="dot" style="background:var(--mint)"></span>健康チェックブース<span class="tag">無料</span></h3>
+        <h3><span class="dot" style="background:var(--mint)"></span><span class="bx">健康チェックブース</span><span class="tag">無料</span></h3>
         <div class="tbl-wrap">
           <table class="booth">
-            <thead><tr><th scope="col">部門</th><th scope="col">ブース内容</th></tr></thead>
+            <thead><tr><th scope="col">部門</th><th scope="col"><span class="bx">ブース内容</span></th></tr></thead>
             <tbody>
-              <tr class="grp"><th colspan="2" scope="rowgroup">加納岩総合病院<span class="where">場所：加納岩総合病院 1階</span></th></tr>
-              <tr><td>看護部</td><td>「人生会議、知っていますか？」<span class="note">〜あなたの“もしも”を大切な人と考える時間〜</span></td></tr>
-              <tr><td>薬剤課</td><td>お薬相談所！</td></tr>
-              <tr><td>放射線課</td><td>骨密度測定<span class="tag pink">当日整理券配布</span></td></tr>
-              <tr><td>検査課</td><td>血管の硬さ・血管年齢、測りませんか？</td></tr>
-              <tr><td>リハビリテーション課</td><td>運動機能の健康チェック</td></tr>
-              <tr><td>栄養課</td><td>栄養相談</td></tr>
-              <tr><td>栄養課</td><td>非常食を作ってみよう！食べてみよう！</td></tr>
-              <tr><td>在宅医療センター</td><td>在宅医療センターの紹介</td></tr>
-              <tr><td>情報サービス課</td><td>脳トレゲーム</td></tr>
-              <tr><td>庶務課・広報委員会</td><td>★公式マスコットキャラクター総選挙★</td></tr>
-              <tr><td>糖尿病連携委員会</td><td>糖尿病啓発コーナー（血糖測定）</td></tr>
+              <tr class="grp"><th colspan="2" scope="rowgroup"><span class="bx">加納岩総合病院</span><span class="where"><span class="bx">場所：加納岩総合病院 1階</span></span></th></tr>
+              <tr><td>看護部</td><td><span class="bx">「人生会議、<wbr>知っていますか？」</span><span class="note"><span class="bx">〜あなたの<wbr>“もしも”を<wbr>大切な<wbr>人と<wbr>考える時間〜</span></span></td></tr>
+              <tr><td>薬剤課</td><td><span class="bx">お薬相談所！</span></td></tr>
+              <tr><td><span class="bx">放射線課</span></td><td><span class="bx">骨密度測定</span><span class="tag pink"><span class="bx">当日整理券配布</span></span></td></tr>
+              <tr><td>検査課</td><td><span class="bx">血管の<wbr>硬さ・<wbr>血管年齢、<wbr>測りませんか？</span></td></tr>
+              <tr><td><span class="bx">リハビリテーション課</span></td><td><span class="bx">運動機能の<wbr>健康チェック</span></td></tr>
+              <tr><td>栄養課</td><td><span class="bx">栄養相談</span></td></tr>
+              <tr><td>栄養課</td><td><span class="bx">非常食を<wbr>作ってみよう！<wbr>食べてみよう！</span></td></tr>
+              <tr><td><span class="bx">在宅医療センター</span></td><td><span class="bx">在宅医療センターの<wbr>紹介</span></td></tr>
+              <tr><td><span class="bx">情報サービス課</span></td><td><span class="bx">脳トレゲーム</span></td></tr>
+              <tr><td><span class="bx">庶務課・広報委員会</span></td><td><span class="bx"><span class="nw">★公式</span>マスコット<wbr><span class="nw">キャラクター総選挙★</span></span></td></tr>
+              <tr><td><span class="bx">糖尿病連携委員会</span></td><td><span class="bx">糖尿病啓発コーナー<wbr>（血糖測定）</span></td></tr>
 
-              <tr class="grp"><th colspan="2" scope="rowgroup">山梨リハビリテーション病院<span class="where">場所：加納岩総合病院 1階</span></th></tr>
-              <tr><td>リハケアセンターきらり<br>認定栄養ケアステーション結び<br>リハビリテーション部</td><td>簡単♪フレイルチェックとワンポイントアドバイス！</td></tr>
+              <tr class="grp"><th colspan="2" scope="rowgroup"><span class="bx">山梨リハビリテーション病院</span><span class="where"><span class="bx">場所：加納岩総合病院 1階</span></span></th></tr>
+              <tr><td><span class="bx">リハケアセンターきらり</span><br><span class="bx">認定栄養ケアステーション結び</span><br><span class="bx">リハビリテーション部</span></td><td><span class="bx">簡単♪<wbr>フレイルチェックと<wbr>ワンポイントアドバイス！</span></td></tr>
 
-              <tr class="grp"><th colspan="2" scope="rowgroup">日下部記念病院<span class="where">場所：日下部記念病院 1階</span></th></tr>
-              <tr><td>行事委員会</td><td>精神科紹介（革細工・心理体験）<span class="tag pink">当日整理券配布</span><span class="note">作品販売もあります</span></td></tr>
-              <tr><td>つくし教室</td><td>デイケアの紹介</td></tr>
-              <tr><td>認知症疾患医療センター</td><td>認知症VR体験<span class="tag pink">当日整理券配布</span></td></tr>
+              <tr class="grp"><th colspan="2" scope="rowgroup"><span class="bx">日下部記念病院</span><span class="where"><span class="bx">場所：日下部記念病院 1階</span></span></th></tr>
+              <tr><td><span class="bx">行事委員会</span></td><td><span class="bx">精神科紹介<wbr>（革細工・心理体験）</span><span class="tag pink"><span class="bx">当日整理券配布</span></span><span class="note"><span class="bx">作品販売も<wbr>あります</span></span></td></tr>
+              <tr><td><span class="bx">つくし教室</span></td><td><span class="bx">デイケアの<wbr>紹介</span></td></tr>
+              <tr><td><span class="bx">認知症疾患医療センター</span></td><td><span class="bx">認知症VR体験</span><span class="tag pink"><span class="bx">当日整理券配布</span></span></td></tr>
             </tbody>
           </table>
         </div>
@@ -433,58 +438,58 @@ footer a{color:#fff}
       <div class="block">
         <h3><span class="dot" style="background:var(--sky)"></span>講演</h3>
         <dl class="lecture">
-          <dt>演題</dt><dd><span class="big">脳卒中から脳を守る！</span><span class="sub">〜今日からできる脳の健康習慣〜</span></dd>
-          <dt>講師</dt><dd>加納岩総合病院 脳神経外科 医長　中村 真</dd>
-          <dt>時間</dt><dd>13:30〜14:30（開場 13:00）</dd>
-          <dt>会場</dt><dd>加納岩総合病院 2階 大会議室</dd>
+          <dt>演題</dt><dd><span class="big"><span class="bx">脳卒中から<wbr>脳を守る！</span></span><span class="sub"><span class="bx">〜今日から<wbr>できる<wbr>脳の<wbr>健康習慣〜</span></span></dd>
+          <dt>講師</dt><dd><span class="bx">加納岩総合病院 脳神経外科 医長　中村 真</span></dd>
+          <dt>時間</dt><dd><span class="bx">13:30〜14:30<wbr>（開場 13:00）</span></dd>
+          <dt>会場</dt><dd><span class="bx">加納岩総合病院 2階 大会議室</span></dd>
         </dl>
       </div>
 
       <div class="block">
         <h3><span class="dot" style="background:var(--yellow)"></span>体験</h3>
         <ul class="list" style="--c:var(--yellow)">
-          <li><a href="#tour">わくわく病院探検ツアー</a><span class="tag pink">事前申込・抽選</span><span class="note">小中学生対象。手術室見学や調剤体験など。11月1日（日）までにお申し込みください</span></li>
-          <li>わくわく広場♪<span class="note">スーパーボールすくいなど</span></li>
-          <li>ラート世界チャンピオン 髙橋靖彦選手によるラート体験<span class="note">10:00〜13:00</span></li>
-          <li>AED体験<span class="note">11:00〜／13:00〜（各45分程度）　提供：日本光電工業株式会社</span></li>
-          <li>ワンコインマッサージ by mukamanis<span class="note">当日受付順</span></li>
+          <li><a href="#tour"><span class="bx">わくわく<wbr>病院探検ツアー</span></a><span class="tag pink"><span class="bx">事前申込・抽選</span></span><span class="note"><span class="bx">小中学生対象。<wbr>手術室見学や<wbr>調剤体験など。<wbr>11月1日<wbr>（日）までに<wbr>お申し込みください</span></span></li>
+          <li><span class="bx">わくわく<wbr>広場♪</span><span class="note"><span class="bx">スーパーボールすくいなど</span></span></li>
+          <li><span class="bx">ラート世界チャンピオン 髙橋靖彦選手に<wbr>よる<wbr>ラート体験</span><span class="note">10:00〜13:00</span></li>
+          <li><span class="bx">AED体験</span><span class="note"><span class="bx">11:00〜／13:00〜<wbr>（各45分程度）　提供：日本光電工業株式会社</span></span></li>
+          <li><span class="bx">ワンコインマッサージ by mukamanis</span><span class="note"><span class="bx">当日受付順</span></span></li>
         </ul>
       </div>
 
       <div class="block wide">
-        <h3><span class="dot" style="background:var(--pink)"></span>おまつり広場</h3>
+        <h3><span class="dot" style="background:var(--pink)"></span><span class="bx">おまつり広場</span></h3>
         <ul class="list" style="--c:var(--pink);columns:2 280px;column-gap:32px">
-          <li>山梨市民吹奏楽団 演奏<span class="note">10:30〜11:30</span></li>
-          <li>日川高等学校 書道部パフォーマンス<span class="note">12:00〜12:30（雨天時は中止します）</span></li>
-          <li>わたがし・フランクフルト 無料配布<span class="note">日下部記念病院</span></li>
-          <li>キッチンカー・パン・コーヒー販売</li>
-          <li>救急車・パトカーなど はたらく車の展示</li>
+          <li><span class="bx">山梨市民吹奏楽団 演奏</span><span class="note">10:30〜11:30</span></li>
+          <li><span class="bx">日川高等学校 書道部パフォーマンス</span><span class="note"><span class="bx">12:00〜12:30<wbr>（雨天時は<wbr>中止します）</span></span></li>
+          <li><span class="bx">わたが<wbr>し・フランクフルト 無料配布</span><span class="note"><span class="bx">日下部記念病院</span></span></li>
+          <li><span class="bx">キッチンカー・パン・コーヒー販売</span></li>
+          <li><span class="bx">救急車・パトカーなど はたらく<wbr>車の展示</span></li>
         </ul>
       </div>
     </div>
 
     <div class="stamp">
       <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="25" fill="#FFF" stroke="#EE7F86" stroke-width="3"/><circle cx="28" cy="28" r="18" fill="none" stroke="#EE7F86" stroke-width="1.5" stroke-dasharray="3 3"/><path d="M19 29l6 6 12-14" fill="none" stroke="#EE7F86" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div><b>スタンプラリー</b><br>会場を回ってスタンプを集めると、粗品をプレゼントします。スタンプカードは会場受付でお渡しします。</div>
+      <div><b><span class="bx">スタンプラリー</span></b><br><span class="bx">会場を<wbr>回って<wbr>スタンプを<wbr>集めると、<wbr>粗品を<wbr>プレゼントします。<wbr>スタンプカードは<wbr>会場受付で<wbr>お渡しします。</span></div>
     </div>
-    <p class="mask-note">※感染対策のため、病院内ではマスクの着用をお願いいたします</p>
+    <p class="mask-note"><span class="bx">※感染対策の<wbr>ため、<wbr>病院内では<wbr>マスクの<wbr>着用を<wbr>お願いいたします</span></p>
   </div>
 </section>
 
 <!-- ================= TIMETABLE ================= -->
 <section id="timetable" class="alt">
   <div class="narrow">
-    <h2 class="sec-title">タイムテーブル</h2>
-    <p class="lead">健康チェックブース・キッチンカーなどは10:00〜15:00の間いつでもお楽しみいただけます。</p>
+    <h2 class="sec-title"><span class="bx">タイムテーブル</span></h2>
+    <p class="lead"><span class="bx">健康チェックブース・キッチンカーなどは<wbr>10:00〜15:00の<wbr>間いつでも<wbr>お楽しみいただけます。</span></p>
     <ol class="tt">
-      <li style="--c:var(--coral)"><time>10:00</time><div><b>開会・受付スタート</b><span>受付でスタンプカードと記念品をお渡しします</span></div></li>
-      <li style="--c:var(--pink)"><time>10:00</time><div><b>ラート体験</b><span>ラート世界チャンピオン 髙橋靖彦選手（10:00〜13:00）</span></div></li>
-      <li style="--c:var(--sky)"><time>10:30</time><div><b>山梨市民吹奏楽団 演奏</b><span>おまつり広場（10:30〜11:30）</span></div></li>
-      <li style="--c:var(--yellow)"><time>10:40</time><div><b>わくわく病院探検ツアー</b><span>10:40 受付開始／10:50〜12:40 ツアー（事前申込の方のみ）</span></div></li>
-      <li style="--c:var(--mint)"><time>11:00</time><div><b>AED体験（1回目）</b><span>45分程度</span></div></li>
-      <li style="--c:var(--mint)"><time>12:00</time><div><b>日川高等学校 書道部パフォーマンス</b><span>おまつり広場（12:00〜12:30）※雨天中止</span></div></li>
-      <li style="--c:var(--mint)"><time>13:00</time><div><b>AED体験（2回目）</b><span>45分程度</span></div></li>
-      <li style="--c:var(--lilac)"><time>13:30</time><div><b>講演「脳卒中から脳を守る！」</b><span>加納岩総合病院 2階 大会議室（13:30〜14:30／開場 13:00）</span></div></li>
+      <li style="--c:var(--coral)"><time>10:00</time><div><b><span class="bx">開会・受付スタート</span></b><span><span class="bx">受付で<wbr>スタンプカードと<wbr>記念品を<wbr>お渡しします</span></span></div></li>
+      <li style="--c:var(--pink)"><time>10:00</time><div><b><span class="bx">ラート体験</span></b><span><span class="bx">ラート世界チャンピオン 髙橋靖彦選手<wbr>（10:00〜13:00）</span></span></div></li>
+      <li style="--c:var(--sky)"><time>10:30</time><div><b><span class="bx">山梨市民吹奏楽団 演奏</span></b><span><span class="bx">おまつり広場<wbr>（10:30〜11:30）</span></span></div></li>
+      <li style="--c:var(--yellow)"><time>10:40</time><div><b><span class="bx">わくわく<wbr>病院探検ツアー</span></b><span><span class="bx">10:40 受付開始／10:50〜12:40 ツアー<wbr>（事前申込の<wbr>方のみ）</span></span></div></li>
+      <li style="--c:var(--mint)"><time>11:00</time><div><b><span class="bx">AED体験<wbr>（1回目）</span></b><span><span class="bx">45分程度</span></span></div></li>
+      <li style="--c:var(--mint)"><time>12:00</time><div><b><span class="bx">日川高等学校 書道部パフォーマンス</span></b><span><span class="bx">おまつり広場<wbr>（12:00〜12:30）<wbr><span class="nw">※雨天中止</span></span></span></div></li>
+      <li style="--c:var(--mint)"><time>13:00</time><div><b><span class="bx">AED体験<wbr>（2回目）</span></b><span><span class="bx">45分程度</span></span></div></li>
+      <li style="--c:var(--lilac)"><time>13:30</time><div><b><span class="bx">講演<wbr>「脳卒中から<wbr>脳を守る！」</span></b><span><span class="bx">加納岩総合病院 2階 大会議室<wbr>（13:30〜14:30／開場 13:00）</span></span></div></li>
       <li style="--c:var(--coral)"><time>15:00</time><div><b>閉会</b></div></li>
     </ol>
   </div>
@@ -493,27 +498,27 @@ footer a{color:#fff}
 <!-- ================= TOUR + FORM ================= -->
 <section id="tour">
   <div class="wrap">
-    <h2 class="sec-title">わくわく病院探検ツアー 参加申込</h2>
+    <h2 class="sec-title"><span class="bx">わくわく<wbr>病院探検ツアー 参加申込</span></h2>
     <div class="tour-head">
       <div>
-        <span class="deadline">申込締切　11月1日（日）</span>
-        <p>ふだんは入れない手術室や、お薬をつくる調剤の様子をのぞいてみよう！看護師さんといっしょに体の測定をしたり、レントゲンのしくみを知ったり、病院のお仕事を体験できるツアーです。</p>
+        <span class="deadline"><span class="bx">申込締切　11月1日<wbr>（日）</span></span>
+        <p><span class="bx">ふだんは<wbr>入れない<wbr>手術室や、<wbr>お薬を<wbr>つくる<wbr>調剤の<wbr>様子を<wbr>のぞいてみよう！<wbr>看護師さんと<wbr>いっしょに<wbr>体の<wbr>測定を<wbr>したり、<wbr>レントゲンの<wbr>しくみを<wbr>知ったり、<wbr>病院の<wbr>お仕事を<wbr>体験できる<wbr>ツアーです。</span></p>
         <dl class="facts">
-          <dt>対象</dt><dd>小学生・中学生（保護者の同伴可）</dd>
-          <dt>定員</dt><dd>10名（5名×2班）<br><span class="hint">申込多数の場合は抽選。当選された方には11月4日（水）までにメールでご連絡します</span></dd>
-          <dt>時間</dt><dd>10:50〜12:40<br><span class="hint">※10:40から受付を開始します</span></dd>
-          <dt>集合</dt><dd>10:40までに加納岩総合病院 会計窓口前</dd>
+          <dt>対象</dt><dd><span class="bx">小学生・中学生<wbr>（保護者の<wbr>同伴可）</span></dd>
+          <dt>定員</dt><dd><span class="bx">10名<wbr>（5名×2班）</span><br><span class="hint"><span class="bx">申込多数の<wbr>場合は<wbr>抽選。<wbr>当選された<wbr>方には<wbr>11月4日<wbr>（水）までに<wbr>メールで<wbr>ご連絡します</span></span></dd>
+          <dt>時間</dt><dd>10:50〜12:40<br><span class="hint"><span class="bx">※10:40から<wbr>受付を<wbr>開始します</span></span></dd>
+          <dt>集合</dt><dd><span class="bx">10:40までに<wbr>加納岩総合病院 会計窓口前</span></dd>
           <dt>参加費</dt><dd>無料</dd>
         </dl>
       </div>
       <div class="block">
-        <h3>当日の流れ</h3>
+        <h3><span class="bx">当日の<wbr>流れ</span></h3>
         <ol class="flow">
-          <li><div><b>受付・班分け</b><small>アレルギーの最終確認をして、注意事項カードをお渡しします</small></div></li>
-          <li><div><b>全体説明</b><small>加納岩総合病院 中澤院長先生のあいさつ、ツアーの流れと安全のお約束</small></div></li>
-          <li><div><b>1階　バイタル体験・レントゲン</b><small>体の測定とレントゲン撮影のしくみ</small></div></li>
-          <li><div><b>2階　手術室見学・調剤体験</b><small>2班が入れ替わりで回ります</small></div></li>
-          <li><div><b>まとめ・記念撮影</b><small>ふり返りと質問タイム、解散</small></div></li>
+          <li><div><b><span class="bx">受付・班分け</span></b><small><span class="bx">アレルギーの<wbr>最終確認を<wbr>して、<wbr>注意事項カードを<wbr>お渡しします</span></small></div></li>
+          <li><div><b><span class="bx">全体<wbr>説明</span></b><small><span class="bx">加納岩総合病院 中澤院長先生の<wbr>あいさつ、<wbr>ツアーの<wbr>流れと<wbr>安全の<wbr>お約束</span></small></div></li>
+          <li><div><b><span class="bx">1階　バイタル体験・レントゲン</span></b><small><span class="bx">体の<wbr>測定と<wbr>レントゲン撮影の<wbr>しく<wbr>み</span></small></div></li>
+          <li><div><b><span class="bx">2階　手術室見学・調剤体験</span></b><small><span class="bx">2班が<wbr>入れ替わりで<wbr>回ります</span></small></div></li>
+          <li><div><b><span class="bx">まとめ・記念撮影</span></b><small><span class="bx">ふり返りと<wbr>質問タイム、<wbr>解散</span></small></div></li>
         </ol>
       </div>
     </div>
@@ -521,108 +526,108 @@ footer a{color:#fff}
     <div class="narrow" style="width:min(820px,100%)">
       <div class="form-card" id="formCard">
         <div id="formClosed" class="closed" hidden>
-          <h3>受付は終了しました</h3>
-          <p style="margin:0">たくさんのお申込みありがとうございました。<br>当選された方には、11月4日（水）までにメールでご連絡します。</p>
+          <h3><span class="bx">受付は<wbr>終了しました</span></h3>
+          <p style="margin:0"><span class="bx">たくさんの<wbr>お申込み<wbr>ありがとう<wbr>ございました。</span><br><span class="bx">当選された<wbr>方には、<wbr>11月4日<wbr>（水）までに<wbr>メールで<wbr>ご連絡します。</span></p>
         </div>
 
         <!-- STEP 1：申込人数の選択 -->
         <div id="countStep" class="count-step">
-          <h3>参加するお子さまの人数を選んでください</h3>
-          <p class="hint" style="margin:0">ごきょうだいは、まとめてお申し込みいただけます。<br>できるだけ同じ班になるよう配慮します。</p>
+          <h3><span class="bx">参加する<wbr>お子さまの<wbr>人数を<wbr>選んでください</span></h3>
+          <p class="hint" style="margin:0"><span class="bx">ごきょうだいは、<wbr>まとめて<wbr>お申し込みいただけます。</span><br><span class="bx">できるだけ<wbr>同じ<wbr>班に<wbr>なるよう<wbr>配慮します。</span></p>
           <div class="count-btns" role="group" aria-label="申込人数">
-            <button type="button" class="count-btn" data-count="1">1人<small>で申し込む</small></button>
-            <button type="button" class="count-btn" data-count="2">2人<small>で申し込む</small></button>
-            <button type="button" class="count-btn" data-count="3">3人<small>で申し込む</small></button>
+            <button type="button" class="count-btn" data-count="1">1人<small><span class="bx">で<wbr>申し込む</span></small></button>
+            <button type="button" class="count-btn" data-count="2">2人<small><span class="bx">で<wbr>申し込む</span></small></button>
+            <button type="button" class="count-btn" data-count="3">3人<small><span class="bx">で<wbr>申し込む</span></small></button>
           </div>
-          <p class="hint" style="margin:0">4人以上でのお申込みは、実行委員会（<a href="tel:0553399720">0553-39-9720</a>）までお電話ください。</p>
+          <p class="hint" style="margin:0"><span class="bx">4人以上での<wbr>お申込みは、<wbr>実行委員会（</span><a href="tel:0553399720">0553-39-9720</a><span class="bx">）まで<wbr>お電話ください。</span></p>
         </div>
 
         <!-- STEP 2：申込フォーム -->
         <form id="tourForm" novalidate hidden>
           <div id="formMsg" class="form-msg" role="alert" hidden></div>
           <div class="count-bar">
-            <span>お申込み人数：<b id="countLabel">1人</b></span>
-            <button type="button" class="link-btn" id="changeCount">人数を変更する</button>
+            <span><span class="bx">お申込み人数：</span><b id="countLabel">1人</b></span>
+            <button type="button" class="link-btn" id="changeCount"><span class="bx">人数を<wbr>変更する</span></button>
           </div>
-          <p class="hint" style="margin-top:0"><span class="req" style="margin-left:0">必須</span>の項目は必ずご入力ください。</p>
+          <p class="hint" style="margin-top:0"><span class="req" style="margin-left:0">必須</span><span class="bx">の<wbr>項目は<wbr>必ず<wbr>ご入力ください。</span></p>
 
           <!-- お子さまの入力欄はここに人数分表示されます -->
           <div id="childrenHost"></div>
 
           <fieldset>
-            <legend><span class="dot" style="background:var(--sky)"></span>保護者の方</legend>
+            <legend><span class="dot" style="background:var(--sky)"></span><span class="bx">保護者の<wbr>方</span></legend>
             <div class="row">
               <div class="field"><label for="parentName">お名前<span class="req">必須</span></label><input type="text" id="parentName" name="parentName" autocomplete="name" maxlength="40" required></div>
-              <div class="field"><label for="parentKana">ふりがな<span class="req">必須</span></label><input type="text" id="parentKana" name="parentKana" maxlength="40" required></div>
+              <div class="field"><label for="parentKana"><span class="bx">ふりがな</span><span class="req">必須</span></label><input type="text" id="parentKana" name="parentKana" maxlength="40" required></div>
             </div>
             <div class="row">
-              <div class="field"><label for="email">メールアドレス<span class="req">必須</span></label><input type="email" id="email" name="email" autocomplete="email" inputmode="email" maxlength="120" required><p class="hint">抽選結果をお送りします。迷惑メール対策をされている方は、受信できるよう設定をお願いします</p></div>
-              <div class="field"><label for="email2">メールアドレス（確認用）<span class="req">必須</span></label><input type="email" id="email2" name="email2" autocomplete="off" inputmode="email" maxlength="120" required></div>
+              <div class="field"><label for="email"><span class="bx">メールアドレス</span><span class="req">必須</span></label><input type="email" id="email" name="email" autocomplete="email" inputmode="email" maxlength="120" required><p class="hint"><span class="bx">抽選結果を<wbr>お送りします。<wbr>迷惑メール対策を<wbr>されている方は、<wbr>受信できるよう<wbr>設定を<wbr>お願いします</span></p></div>
+              <div class="field"><label for="email2"><span class="bx">メールアドレス<wbr>（確認用）</span><span class="req">必須</span></label><input type="email" id="email2" name="email2" autocomplete="off" inputmode="email" maxlength="120" required></div>
             </div>
             <div class="row">
-              <div class="field"><label for="tel">当日連絡がつく電話番号<span class="req">必須</span></label><input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="例）090-1234-5678"></div>
-              <div class="field"><span class="lbl">ツアーへの同伴<span class="req">必須</span></span>
+              <div class="field"><label for="tel"><span class="bx">当日連絡が<wbr>つく<wbr>電話番号</span><span class="req">必須</span></label><input type="tel" id="tel" name="tel" autocomplete="tel" inputmode="tel" maxlength="20" required placeholder="例）090-1234-5678"></div>
+              <div class="field"><span class="lbl"><span class="bx">ツアーへの<wbr>同伴</span><span class="req">必須</span></span>
                 <div class="choices" role="radiogroup" aria-label="ツアーへの同伴">
-                  <label class="choice"><input type="radio" name="accompany" value="同伴する" required><span>同伴する</span></label>
-                  <label class="choice"><input type="radio" name="accompany" value="同伴しない"><span>同伴しない</span></label>
+                  <label class="choice"><input type="radio" name="accompany" value="同伴する" required><span><span class="bx">同伴する</span></span></label>
+                  <label class="choice"><input type="radio" name="accompany" value="同伴しない"><span><span class="bx">同伴しない</span></span></label>
                 </div>
-                <p class="hint">同伴しない場合も、ツアー中は院内でお待ちください</p>
+                <p class="hint"><span class="bx">同伴しない<wbr>場合も、<wbr>ツアー中は<wbr>院内で<wbr>お待ちください</span></p>
               </div>
             </div>
           </fieldset>
 
           <fieldset>
-            <legend><span class="dot" style="background:var(--lilac)"></span>写真撮影について</legend>
-            <p class="hint" style="margin-top:-4px">当日はツアーの記念撮影のほか、実行委員会による記録撮影やケーブルテレビの取材を予定しています。</p>
-            <div class="field"><span class="lbl">病院の広報物・ホームページ・テレビ等への写真や映像の掲載<span class="req">必須</span></span>
+            <legend><span class="dot" style="background:var(--lilac)"></span><span class="bx">写真撮影に<wbr>ついて</span></legend>
+            <p class="hint" style="margin-top:-4px"><span class="bx">当日は<wbr>ツアーの<wbr>記念撮影の<wbr>ほか、<wbr>実行委員会に<wbr>よる<wbr>記録撮影や<wbr>ケーブルテレビの<wbr>取材を<wbr>予定しています。</span></p>
+            <div class="field"><span class="lbl"><span class="bx">病院の<wbr>広報物・ホームページ・テレビ等への<wbr>写真や<wbr>映像の<wbr>掲載</span><span class="req">必須</span></span>
               <div class="choices">
-                <label class="choice"><input type="radio" name="photo" value="掲載してよい" required><span>掲載してよい</span></label>
-                <label class="choice"><input type="radio" name="photo" value="顔が分からなければよい"><span>顔が分からなければよい</span></label>
-                <label class="choice"><input type="radio" name="photo" value="掲載しないでほしい"><span>掲載しないでほしい</span></label>
+                <label class="choice"><input type="radio" name="photo" value="掲載してよい" required><span><span class="bx">掲載して<wbr>よい</span></span></label>
+                <label class="choice"><input type="radio" name="photo" value="顔が分からなければよい"><span><span class="bx">顔が<wbr>分からなければよい</span></span></label>
+                <label class="choice"><input type="radio" name="photo" value="掲載しないでほしい"><span><span class="bx">掲載しないで<wbr>ほしい</span></span></label>
               </div>
             </div>
           </fieldset>
 
           <fieldset>
-            <legend><span class="dot" style="background:var(--mint)"></span>注意事項の確認</legend>
+            <legend><span class="dot" style="background:var(--mint)"></span><span class="bx">注意事項の<wbr>確認</span></legend>
             <div class="notice-box" tabindex="0" aria-label="注意事項">
               <ul>
-                <li>申込多数の場合は抽選とし、当選された方にのみ11月4日（水）までにメールでご連絡します（落選のご連絡はいたしません）。</li>
-                <li>当日は10:40から受付を開始します。10:40までに加納岩総合病院 会計窓口前で受付を済ませてください。</li>
-                <li>必ずスタッフと一緒に行動し、立入禁止の場所には入らないでください。</li>
-                <li>院内では走らず、大きな声を出さないようお願いします。医療機器や備品にはスタッフの許可なく触れないでください。</li>
-                <li>患者さんの診療が優先となります。当日の状況により、ルートや体験内容を変更・中止する場合があります。</li>
-                <li>写真撮影はスタッフが許可した場所・対象に限ります。患者さんや職員が写り込まないようご配慮ください。</li>
-                <li>発熱や咳など体調がすぐれない場合は、参加をお控えください。<span class="warn">院内ではマスクの着用をお願いいたします。</span></li>
-                <li>ツアー中に気分が悪くなった場合やけが・迷子などの際は、すぐに近くのスタッフへお知らせください。</li>
-                <li>ご記入いただいた個人情報は、本ツアーの運営と連絡のみに使用します。</li>
+                <li><span class="bx">申込多数の<wbr>場合は<wbr>抽選とし、<wbr>当選された<wbr>方にのみ<wbr>11月4日<wbr>（水）までに<wbr>メールで<wbr>ご連絡します<wbr>（落選の<wbr>ご連絡は<wbr>いたしません）。</span></li>
+                <li><span class="bx">当日は<wbr>10:40から<wbr>受付を<wbr>開始します。<wbr>10:40までに<wbr>加納岩総合病院 会計窓口前で<wbr>受付を<wbr>済ませてください。</span></li>
+                <li><span class="bx">必ず<wbr>スタッフと<wbr>一緒に<wbr>行動し、<wbr>立入禁止の<wbr>場所には<wbr>入らないでください。</span></li>
+                <li><span class="bx">院内では<wbr>走らず、<wbr>大きな<wbr>声を<wbr>出さないよう<wbr>お願いします。<wbr>医療機器や<wbr>備品には<wbr>スタッフの<wbr>許可なく<wbr>触れないでください。</span></li>
+                <li><span class="bx">患者さんの<wbr>診療が<wbr>優先と<wbr>なります。<wbr>当日の<wbr>状況に<wbr>より、<wbr>ルートや<wbr>体験内容を<wbr>変更・中止する<wbr>場合が<wbr>あります。</span></li>
+                <li><span class="bx">写真撮影は<wbr>スタッフが<wbr>許可した<wbr>場所・対象に<wbr>限ります。<wbr>患者さんや<wbr>職員が<wbr>写り込まないよう<wbr>ご配慮ください。</span></li>
+                <li><span class="bx">発熱や<wbr>咳など<wbr>体調が<wbr>すぐれない<wbr>場合は、<wbr>参加を<wbr>お控えください。</span><span class="warn"><span class="bx">院内では<wbr>マスクの<wbr>着用を<wbr>お願いいたします。</span></span></li>
+                <li><span class="bx">ツアー中に<wbr>気分が<wbr>悪くなった<wbr>場合やけが<wbr>・迷子などの<wbr>際は、<wbr>すぐに<wbr>近くの<wbr>スタッフへ<wbr>お知らせ<wbr>ください。</span></li>
+                <li><span class="bx">ご記入いただいた<wbr>個人情報は、<wbr>本ツアーの<wbr>運営と<wbr>連絡のみに<wbr>使用します。</span></li>
               </ul>
             </div>
-            <label class="agree"><input type="checkbox" id="agree" name="agree" required><span>上記の注意事項を確認し、同意します<span class="req">必須</span></span></label>
+            <label class="agree"><input type="checkbox" id="agree" name="agree" required><span><span class="bx">上記の<wbr>注意事項を<wbr>確認し、<wbr>同意します</span><span class="req">必須</span></span></label>
           </fieldset>
 
-          <div class="hp" aria-hidden="true"><label>空欄のままにしてください<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="hp" aria-hidden="true"><label><span class="bx">空欄の<wbr>ままに<wbr>してください</span><input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
 
-          <div class="btns"><button type="submit" class="btn primary">入力内容を確認する</button></div>
+          <div class="btns"><button type="submit" class="btn primary"><span class="bx">入力内容を<wbr>確認する</span></button></div>
         </form>
 
         <div id="confirmView" class="confirm" hidden>
-          <h3>入力内容の確認</h3>
-          <p class="hint">内容をご確認のうえ「この内容で申し込む」を押してください。</p>
+          <h3><span class="bx">入力内容の<wbr>確認</span></h3>
+          <p class="hint"><span class="bx">内容を<wbr>ご確認の<wbr>うえ<wbr>「この<wbr>内容で<wbr>申し込む」を<wbr>押してください。</span></p>
           <div id="confirmList"></div>
           <div id="sendMsg" class="form-msg ng" role="alert" hidden></div>
           <div class="btns">
-            <button type="button" class="btn" id="backBtn">修正する</button>
-            <button type="button" class="btn primary" id="sendBtn">この内容で申し込む</button>
+            <button type="button" class="btn" id="backBtn"><span class="bx">修正する</span></button>
+            <button type="button" class="btn primary" id="sendBtn"><span class="bx">この<wbr>内容で<wbr>申し込む</span></button>
           </div>
         </div>
 
         <div id="doneView" class="done" hidden tabindex="-1">
-          <h3>お申込みを受け付けました</h3>
-          <p style="margin-bottom:4px">受付番号</p>
+          <h3><span class="bx">お申込みを<wbr>受け付けました</span></h3>
+          <p style="margin-bottom:4px"><span class="bx">受付番号</span></p>
           <p class="no" id="receiptNo">―</p>
-          <p id="doneMail">ご入力のメールアドレスに受付確認メールをお送りしました。<br>当選された方には、11月4日（水）までにメールでご連絡します。</p>
-          <p class="hint">確認メールが届かない場合は、迷惑メールフォルダをご確認のうえ、加納岩健康フェス2026実行委員会（0553-39-9720）へお問い合わせください。</p>
+          <p id="doneMail"><span class="bx">ご入力の<wbr>メールアドレスに<wbr>受付確認メールを<wbr>お送りしました。</span><br><span class="bx">当選された<wbr>方には、<wbr>11月4日<wbr>（水）までに<wbr>メールで<wbr>ご連絡します。</span></p>
+          <p class="hint"><span class="bx">確認メールが<wbr>届かない<wbr>場合は、<wbr>迷惑メールフォルダを<wbr>ご確認の<wbr>うえ、<wbr>加納岩健康フェス2026実行委員会<wbr>（0553-39-9720）<wbr>へ<wbr>お問い合わせ<wbr>ください。</span></p>
         </div>
       </div>
     </div>
@@ -632,7 +637,7 @@ footer a{color:#fff}
 <!-- ================= ACCESS ================= -->
 <section id="access" class="alt">
   <div class="wrap">
-    <h2 class="sec-title">会場案内・アクセス</h2>
+    <h2 class="sec-title"><span class="bx">会場案内・アクセス</span></h2>
     <div class="access">
       <div>
         <figure class="map-svg" style="margin:0">
@@ -679,13 +684,13 @@ footer a{color:#fff}
             <text x="399" y="274" font-size="11" font-weight="700" fill="#655F72" text-anchor="middle">はたらく車展示</text>
           </svg>
         </figure>
-        <p class="hint" style="margin-top:8px">※配置は変更になる場合があります。当日は会場受付でご案内します。</p>
+        <p class="hint" style="margin-top:8px"><span class="bx">※配置は<wbr>変更に<wbr>なる<wbr>場合が<wbr>あります。<wbr>当日は<wbr>会場受付で<wbr>ご案内します。</span></p>
       </div>
       <div>
         <ul class="how">
-          <li><b>電車でお越しの方</b>JR中央線「山梨市駅」から徒歩約5分</li>
-          <li><b>お車でお越しの方</b>加納岩総合病院の駐車場をご利用ください。ただし、当日は会場内が一方通行となり、駅前通りからのご案内となりますのでご注意ください。<br><span class="hint">駐車台数に限りがありますので、乗り合わせや公共交通機関のご利用にご協力ください。ご迷惑をおかけしますが、ご理解とご協力をお願いいたします。</span></li>
-          <li><b>所在地</b>加納岩総合病院　山梨県山梨市上神内川1309<br><a href="https://www.google.com/maps/search/?api=1&query=%E5%8A%A0%E7%B4%8D%E5%B2%A9%E7%B7%8F%E5%90%88%E7%97%85%E9%99%A2" target="_blank" rel="noopener">Googleマップで開く</a></li>
+          <li><b><span class="bx">電車で<wbr>お越しの<wbr>方</span></b><span class="bx">JR中央線<wbr>「山梨市駅」から<wbr>徒歩約5分</span></li>
+          <li><b><span class="bx">お車で<wbr>お越しの<wbr>方</span></b><span class="bx">加納岩総合病院の<wbr>駐車場を<wbr>ご利用ください。<wbr>ただし、<wbr>当日は<wbr>会場内が<wbr>一方<wbr>通行と<wbr>なり、<wbr>駅前通りからの<wbr>ご案内と<wbr>なりますので<wbr>ご注意ください。</span><br><span class="hint"><span class="bx">駐車台数に<wbr>限りが<wbr>ありますので、<wbr>乗り合わせや<wbr>公共交通機関の<wbr>ご利用に<wbr>ご協力ください。<wbr>ご迷惑を<wbr>おかけしますが、<wbr>ご理解と<wbr>ご協力を<wbr>お願いいたします。</span></span></li>
+          <li><b>所在地</b><span class="bx">加納岩総合病院　山梨県山梨市上神内川1309</span><br><a href="https://www.google.com/maps/search/?api=1&query=%E5%8A%A0%E7%B4%8D%E5%B2%A9%E7%B7%8F%E5%90%88%E7%97%85%E9%99%A2" target="_blank" rel="noopener"><span class="bx">Googleマップで<wbr>開く</span></a></li>
         </ul>
         <div class="gmap"><iframe title="加納岩総合病院の地図" loading="lazy" src="https://www.google.com/maps?q=%E5%8A%A0%E7%B4%8D%E5%B2%A9%E7%B7%8F%E5%90%88%E7%97%85%E9%99%A2&output=embed"></iframe></div>
       </div>
@@ -696,14 +701,14 @@ footer a{color:#fff}
 <!-- ================= NOTES ================= -->
 <section id="notes">
   <div class="wrap">
-    <h2 class="sec-title">ご来場の皆さまへ</h2>
+    <h2 class="sec-title"><span class="bx">ご来場の<wbr>皆さまへ</span></h2>
     <ul class="notes">
-      <li>各コーナー・イベントの開催場所は、会場受付でご案内します。</li>
-      <li class="warn">感染対策のため、病院内ではマスクの着用をお願いいたします。</li>
-      <li>お車の場合、会場内は一方通行です。駅前通りからお入りください。駐車場に限りがあるため、乗り合わせや公共交通機関のご利用にご協力ください。</li>
-      <li>当日も通常どおり入院患者さんがいらっしゃいます。院内では静かにお過ごしください。</li>
-      <li>おむつ替え・授乳のスペースは、加納岩総合病院1階 ATM横にございます。</li>
-      <li>イベント内容は変更になる場合があります。最新情報はこのページでお知らせします。</li>
+      <li><span class="bx">各コーナー・イベントの<wbr>開催場所は、<wbr>会場受付で<wbr>ご案内します。</span></li>
+      <li class="warn"><span class="bx">感染対策の<wbr>ため、<wbr>病院内では<wbr>マスクの<wbr>着用を<wbr>お願いいたします。</span></li>
+      <li><span class="bx">お車の<wbr>場合、<wbr>会場内は<wbr>一方<wbr>通行です。<wbr>駅前通りから<wbr>お入りください。<wbr>駐車場に<wbr>限りが<wbr>ある<wbr>ため、<wbr>乗り合わせや<wbr>公共交通機関の<wbr>ご利用に<wbr>ご協力ください。</span></li>
+      <li><span class="bx">当日も<wbr>通常ど<wbr>おり入院患者さんが<wbr>いらっしゃいます。<wbr>院内では<wbr>静かに<wbr>お過ごしください。</span></li>
+      <li><span class="bx">おむつ<wbr>替え・授乳の<wbr>スペースは、<wbr>加納岩総合病院1階 ATM横に<wbr>ございます。</span></li>
+      <li><span class="bx">イベント内容は<wbr>変更に<wbr>なる<wbr>場合が<wbr>あります。<wbr>最新情報は<wbr>この<wbr>ページで<wbr>お知らせします。</span></li>
     </ul>
   </div>
 </section>
@@ -713,21 +718,21 @@ footer a{color:#fff}
   <div class="wrap">
     <div class="foot">
       <div>
-        <h2>加納岩健康フェス2026</h2>
-        <p style="margin:0">主催：加納岩健康フェス2026実行委員会　後援：山梨市</p>
-        <p style="margin:0">社会医療法人加納岩（加納岩総合病院・日下部記念病院・山梨リハビリテーション病院）</p>
+        <h2><span class="bx">加納岩健康フェス2026</span></h2>
+        <p style="margin:0"><span class="bx">主催：加納岩健康フェス2026実行委員会</span><br><span class="nw">後援：山梨市</span></p>
+        <p style="margin:0"><span class="bx">社会医療法人加納岩<wbr>（加納岩総合病院・日下部記念病院・山梨リハビリテーション病院）</span></p>
       </div>
       <address>
-        お問い合わせ：加納岩健康フェス2026実行委員会<br>
+        <span class="bx">お問い合わせ：加納岩健康フェス2026実行委員会</span><br>
         TEL <a href="tel:0553399720">0553-39-9720</a><br>
-        会場：加納岩総合病院（山梨県山梨市上神内川1309）
+        <span class="bx">会場：加納岩総合病院<wbr>（山梨県山梨市上神内川1309）</span>
       </address>
     </div>
-    <p class="copy">© 2026 社会医療法人加納岩</p>
+    <p class="copy"><span class="bx">© 2026 社会医療法人加納岩</span></p>
   </div>
 </footer>
 
-<a class="to-form" href="#tour">ツアーに申し込む</a>
+<a class="to-form" href="#tour"><span class="bx">ツアーに<wbr>申し込む</span></a>
 
 <script>
 /* ============================================================
@@ -785,47 +790,47 @@ const CONTACT = "加納岩健康フェス2026実行委員会（0553-39-9720）";
   function childHTML(i){
     return `
     <fieldset class="child" id="child_${i}" hidden disabled>
-      <legend><span class="dot" style="background:var(--yellow)"></span>参加するお子さま<span class="child-num">${i}人目</span></legend>
+      <legend><span class="dot" style="background:var(--yellow)"></span><span class="bx">参加する<wbr>お子さま</span><span class="child-num"><span class="bx">${i}人目</span></span></legend>
       <div class="row">
         <div class="field"><label for="childName_${i}">お名前<span class="req">必須</span></label><input type="text" id="childName_${i}" name="childName_${i}" autocomplete="off" maxlength="40" placeholder="例）加納 花子"></div>
-        <div class="field"><label for="childKana_${i}">ふりがな<span class="req">必須</span></label><input type="text" id="childKana_${i}" name="childKana_${i}" maxlength="40" placeholder="例）かのう はなこ"></div>
+        <div class="field"><label for="childKana_${i}"><span class="bx">ふりがな</span><span class="req">必須</span></label><input type="text" id="childKana_${i}" name="childKana_${i}" maxlength="40" placeholder="例）かのう はなこ"></div>
       </div>
       <div class="field" style="max-width:340px"><label for="grade_${i}">学年<span class="req">必須</span></label>
         <select id="grade_${i}" name="grade_${i}"><option value="">選択してください</option>${GRADES.map(g=>`<option>${g}</option>`).join("")}</select>
       </div>
 
-      <p class="sub-h">アレルギー・健康状態の確認</p>
-      <p class="hint" style="margin-top:0;margin-bottom:12px">ツアー中の体験で、お菓子などの食品を使う場合があります。安全のため、正確にご記入ください。</p>
-      <div class="field"><span class="lbl">食物アレルギー<span class="req">必須</span></span>
+      <p class="sub-h"><span class="bx">アレルギー・健康状態の<wbr>確認</span></p>
+      <p class="hint" style="margin-top:0;margin-bottom:12px"><span class="bx">ツアー中の<wbr>体験で、<wbr>お菓子などの<wbr>食品を<wbr>使う<wbr>場合が<wbr>あります。<wbr>安全の<wbr>ため、<wbr>正確に<wbr>ご記入ください。</span></p>
+      <div class="field"><span class="lbl"><span class="bx">食物アレルギー</span><span class="req">必須</span></span>
         <div class="choices">
-          <label class="choice"><input type="radio" name="allergy_${i}" value="なし"><span>ありません</span></label>
-          <label class="choice"><input type="radio" name="allergy_${i}" value="あり"><span>あります</span></label>
+          <label class="choice"><input type="radio" name="allergy_${i}" value="なし"><span><span class="bx">ありません</span></span></label>
+          <label class="choice"><input type="radio" name="allergy_${i}" value="あり"><span><span class="bx">あります</span></span></label>
         </div>
       </div>
       <div class="allergy-detail" id="allergyDetail_${i}" hidden>
-        <div class="field"><span class="lbl">何のアレルギーですか？<span class="req">必須</span></span>
-          <p class="hint" style="margin:0 0 8px">あてはまる食品を選ぶか、下の欄に食品名をご記入ください（両方でも構いません）。</p>
+        <div class="field"><span class="lbl"><span class="bx">何の<wbr>アレルギーですか？</span><span class="req">必須</span></span>
+          <p class="hint" style="margin:0 0 8px"><span class="bx">あては<wbr>まる<wbr>食品を<wbr>選ぶか、<wbr>下の<wbr>欄に<wbr>食品名を<wbr>ご記入ください<wbr>（両方でも<wbr>構いません）。</span></p>
           <div class="choices">${ALLERGENS.map(([v,t])=>`<label class="choice"><input type="checkbox" name="allergens_${i}" value="${v}"><span>${t}</span></label>`).join("")}</div>
         </div>
-        <div class="field"><label for="allergyOther_${i}">アレルギーのある食品・原材料（上記以外／詳しい内容）</label><input type="text" id="allergyOther_${i}" name="allergyOther_${i}" maxlength="120" placeholder="例）大豆、ごま、キウイフルーツ"></div>
+        <div class="field"><label for="allergyOther_${i}"><span class="bx">アレルギーの<wbr>ある<wbr>食品・原材料<wbr>（上記以外<wbr>／詳しい<wbr>内容）</span></label><input type="text" id="allergyOther_${i}" name="allergyOther_${i}" maxlength="120" placeholder="例）大豆、ごま、キウイフルーツ"></div>
         <div class="row">
-          <div class="field"><span class="lbl">アナフィラキシーを起こしたこと<span class="req">必須</span></span>
+          <div class="field"><span class="lbl"><span class="bx">アナフィラキシーを<wbr>起こした<wbr>こと</span><span class="req">必須</span></span>
             <div class="choices">
               <label class="choice"><input type="radio" name="anaphylaxis_${i}" value="ない"><span>ない</span></label>
               <label class="choice"><input type="radio" name="anaphylaxis_${i}" value="ある"><span>ある</span></label>
-              <label class="choice"><input type="radio" name="anaphylaxis_${i}" value="わからない"><span>わからない</span></label>
+              <label class="choice"><input type="radio" name="anaphylaxis_${i}" value="わからない"><span><span class="bx">わからない</span></span></label>
             </div>
           </div>
-          <div class="field"><span class="lbl">エピペン®の携帯<span class="req">必須</span></span>
+          <div class="field"><span class="lbl"><span class="bx">エピペン®の<wbr>携帯</span><span class="req">必須</span></span>
             <div class="choices">
-              <label class="choice"><input type="radio" name="epipen_${i}" value="当日持参する"><span>当日持参する</span></label>
-              <label class="choice"><input type="radio" name="epipen_${i}" value="処方されていない"><span>処方されていない</span></label>
+              <label class="choice"><input type="radio" name="epipen_${i}" value="当日持参する"><span><span class="bx">当日持参する</span></span></label>
+              <label class="choice"><input type="radio" name="epipen_${i}" value="処方されていない"><span><span class="bx">処方されていない</span></span></label>
             </div>
           </div>
         </div>
-        <div class="field" style="margin-bottom:0"><label for="allergyNote_${i}">症状や、触れる・においでも反応するかなど<span class="opt">任意</span></label><textarea id="allergyNote_${i}" name="allergyNote_${i}" maxlength="500" placeholder="例）少量でもじんましんが出ます。触るだけなら大丈夫です。"></textarea></div>
+        <div class="field" style="margin-bottom:0"><label for="allergyNote_${i}"><span class="bx">症状や、<wbr>触れる・に<wbr>おいでも<wbr>反応するかなど</span><span class="opt">任意</span></label><textarea id="allergyNote_${i}" name="allergyNote_${i}" maxlength="500" placeholder="例）少量でもじんましんが出ます。触るだけなら大丈夫です。"></textarea></div>
       </div>
-      <div class="field"><label for="health_${i}">持病・体調面・行動面などで、スタッフに伝えておきたいこと<span class="opt">任意</span></label><textarea id="health_${i}" name="health_${i}" maxlength="500" placeholder="例）ぜんそくがあり吸入薬を持参します／大きな音が苦手です"></textarea></div>
+      <div class="field"><label for="health_${i}"><span class="bx">持病・体調面・<wbr>行動面などで、<wbr>スタッフに<wbr>伝えて<wbr>おきたい<wbr>こと</span><span class="opt">任意</span></label><textarea id="health_${i}" name="health_${i}" maxlength="500" placeholder="例）ぜんそくがあり吸入薬を持参します／大きな音が苦手です"></textarea></div>
     </fieldset>`;
   }
   $("childrenHost").innerHTML = Array.from({length:MAX_CHILDREN},(_,k)=>childHTML(k+1)).join("");
