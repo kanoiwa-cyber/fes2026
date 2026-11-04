@@ -281,6 +281,22 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:#5B8FD6;box-sh
 .form-msg{border-radius:10px;padding:12px 16px;margin-bottom:20px;font-weight:700}
 .form-msg.ng{background:#FFF0F1;color:var(--coral-ink)}
 
+/* venue map */
+.venue-map{background:#fff;border:2px solid var(--ink);border-radius:20px;padding:22px clamp(14px,3vw,28px) 18px;margin:0 auto 36px;max-width:880px;text-align:center}
+.vm-title{font-size:22px;margin:0 0 14px}
+.vm-thumb{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#F2FAF6}
+.vm-thumb img{width:100%;height:auto;display:block;transition:transform .25s}
+.vm-thumb:hover img{transform:scale(1.02)}
+.vm-zoom{position:absolute;right:10px;bottom:10px;background:rgba(63,58,74,.82);color:#fff;font-size:13px;font-weight:700;border-radius:999px;padding:4px 12px 4px 30px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M15.5 15.5L21 21M10.5 7.5v6M7.5 10.5h6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:10px center;background-size:15px}
+.vm-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0 6px}
+.vm-btn{display:inline-block;min-width:170px;text-align:center;text-decoration:none;font-weight:900;font-size:15.5px;border:2px solid var(--ink);border-radius:999px;padding:10px 22px;color:var(--ink);background:#fff}
+.vm-btn.primary{background:var(--coral-ink);border-color:var(--coral-ink);color:#fff}
+.vm-btn:hover{filter:brightness(.95)}
+.vm-hint{margin:6px 0 0}
+@media (max-width:560px){.vm-btn{flex:1 1 100%}}
+
 /* access */
 .access{display:grid;grid-template-columns:1fr 1fr;gap:32px}
 @media (max-width:820px){.access{grid-template-columns:1fr}}
@@ -327,6 +343,7 @@ footer a{color:#fff}
         <li><a href="#about"><span class="bx">開催概要</span></a></li>
         <li><a href="#events"><span class="bx">イベント内容</span></a></li>
         <li><a href="#timetable"><span class="bx">タイムテーブル</span></a></li>
+        <li><a href="#venue-map"><span class="bx">会場マップ</span></a></li>
         <li><a href="#access"><span class="bx">アクセス</span></a></li>
         <li><a class="cta" href="#tour"><span class="bx">病院探検ツアー申込</span></a></li>
       </ul>
@@ -363,6 +380,7 @@ footer a{color:#fff}
     <h2 class="sec-title"><span class="bx">お知らせ</span></h2>
     <!-- 新しいお知らせは一番上に <li> を追加してください -->
     <ul class="news">
+      <li><time datetime="2026-11-04">2026.11.04</time><span><span class="bx"><a href="#venue-map">会場マップ</a>を<wbr>掲載しました。<wbr>ブースや<wbr>イベントの<wbr>場所は、<wbr>こちらで<wbr>ご確認ください。<wbr>画像を<wbr>保存して<wbr>当日も<wbr>ご利用いただけます。</span></span></li>
       <li><time datetime="2026-11-04">2026.11.04</time><span><span class="bx">「わくわく<wbr>病院探検ツアー」の<wbr>時間が<wbr>変更に<wbr>なりました。<wbr>詳細は、<wbr>当選された方へ<wbr>お送りした<wbr>メールを<wbr>ご確認ください。</span></span></li>
       <li><time datetime="2026-11-04">2026.11.04</time><span><span class="bx">「わくわく<wbr>病院探検ツアー」の<wbr>参加申込は<wbr>終了しました。<wbr>たくさんの<wbr>お申込み、<wbr>ありがとうございました。</span></span></li>
       <li><time datetime="2026-10-05">2026.10.05</time><span><span class="bx">特設ページを<wbr>公開しました。<wbr>「わくわく<wbr>病院探検ツアー」の<wbr>参加申込を<wbr>受け付けています<wbr>（11月1日<wbr>（日）まで）。</span></span></li>
@@ -505,7 +523,7 @@ footer a{color:#fff}
         <li><span class="area a-ks">日下部エリア</span><span class="bx">日下部記念病院</span></li>
         <li><span class="area a-om">おまつり広場</span><span class="bx">屋外ステージ・<wbr>キッチンカー</span></li>
       </ul>
-      <p class="hint"><a href="#access">会場案内図で場所を見る</a></p>
+      <p class="hint"><a href="#venue-map">会場マップで場所を見る</a></p>
     </div>
     <ol class="tt">
       <li style="--c:var(--coral)"><time>10:00</time><div><b><span class="bx">開会・受付<wbr>スタート・<wbr>各ブース<wbr>スタート</span></b><span class="areas"><span class="area a-kn">加納岩エリア</span><span class="area a-ks">日下部エリア</span></span><span><span class="bx">受付で<wbr>スタンプカードを<wbr>お渡しします。<wbr>スタンプラリーを<wbr>完成させた方に<wbr>記念品を<wbr>お渡しします</span></span></div></li>
@@ -665,6 +683,19 @@ footer a{color:#fff}
 <section id="access" class="alt">
   <div class="wrap">
     <h2 class="sec-title"><span class="bx">会場案内・アクセス</span></h2>
+    <div class="venue-map" id="venue-map">
+      <h3 class="vm-title"><span class="bx">会場マップ</span></h3>
+      <a class="vm-thumb" href="venue-map.jpg" target="_blank" rel="noopener">
+        <img src="venue-map-thumb.jpg" width="900" height="637" loading="lazy"
+          alt="加納岩健康フェス2026 会場マップ。加納岩総合病院エリア（1階・2階、ブース1〜19とフォトブース）、日下部記念病院エリア（20〜23）、おまつり広場（24〜29、メインステージ・飲食スペース）、総合受付と入口の位置を示した図">
+        <span class="vm-zoom">タップで拡大</span>
+      </a>
+      <div class="vm-btns">
+        <a class="vm-btn primary" href="venue-map.jpg" download="加納岩健康フェス2026_会場マップ.jpg">画像を保存する</a>
+        <a class="vm-btn" href="venue-map.jpg" target="_blank" rel="noopener">拡大して見る</a>
+      </div>
+      <p class="hint vm-hint"><span class="bx">スマートフォンの方は、<wbr>「拡大して見る」で<wbr>開いた画像を<wbr>長押しすると<wbr>写真に<wbr>保存できます。<wbr>当日、<wbr>会場で<wbr>ご覧いただくと<wbr>便利です。</span></p>
+    </div>
     <div class="access">
       <div>
         <figure class="map-svg" style="margin:0">
