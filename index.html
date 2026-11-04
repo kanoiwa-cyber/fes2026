@@ -189,6 +189,20 @@ body{line-break:strict}
 .tt time{font-weight:900;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
 .tt b{display:block}
 .tt span{display:block;font-size:14px;color:var(--ink-soft)}
+/* 場所の目印（エリア） */
+.area{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;font-weight:700;line-height:1.6;padding:0 10px 0 8px;border-radius:999px;border:1.5px solid;white-space:nowrap}
+.area::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.a-kn{background:#EDE5FA;color:#5B3FA0;border-color:#B59BE0}
+.a-ks{background:#E1F4EC;color:#2F7A63;border-color:#7CC4A6}
+.a-om{background:#FFF3C9;color:#7A5A00;border-color:#E9B930}
+.tt .nw{display:inline;font-size:inherit}
+.tt .areas{display:flex;flex-wrap:wrap;gap:4px 6px;margin:4px 0 3px}
+.tt .area{display:inline-flex;font-size:12.5px}
+.tt .a-kn{color:#5B3FA0}.tt .a-ks{color:#2F7A63}.tt .a-om{color:#7A5A00}
+.area-legend{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 16px;margin:0 0 24px}
+.area-legend p{margin:0}
+.area-legend ul{list-style:none;margin:6px 0 4px;padding:0;display:flex;flex-wrap:wrap;gap:6px 20px}
+.area-legend li{display:flex;align-items:center;gap:8px;font-size:14.5px}
 
 /* tour */
 .tour-head{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start;margin-bottom:40px}
@@ -349,6 +363,8 @@ footer a{color:#fff}
     <h2 class="sec-title"><span class="bx">お知らせ</span></h2>
     <!-- 新しいお知らせは一番上に <li> を追加してください -->
     <ul class="news">
+      <li><time datetime="2026-11-04">2026.11.04</time><span><span class="bx">「わくわく<wbr>病院探検ツアー」の<wbr>時間が<wbr>変更に<wbr>なりました。<wbr>詳細は、<wbr>当選された方へ<wbr>お送りした<wbr>メールを<wbr>ご確認ください。</span></span></li>
+      <li><time datetime="2026-11-04">2026.11.04</time><span><span class="bx">「わくわく<wbr>病院探検ツアー」の<wbr>参加申込は<wbr>終了しました。<wbr>たくさんの<wbr>お申込み、<wbr>ありがとうございました。</span></span></li>
       <li><time datetime="2026-10-05">2026.10.05</time><span><span class="bx">特設ページを<wbr>公開しました。<wbr>「わくわく<wbr>病院探検ツアー」の<wbr>参加申込を<wbr>受け付けています<wbr>（11月1日<wbr>（日）まで）。</span></span></li>
     </ul>
     <div class="alert">
@@ -461,7 +477,8 @@ footer a{color:#fff}
         <ul class="list" style="--c:var(--pink);columns:2 280px;column-gap:32px">
           <li><span class="bx">山梨市民吹奏楽団 演奏</span><span class="note">10:30〜11:30</span></li>
           <li><span class="bx">日川高等学校 書道部パフォーマンス</span><span class="note"><span class="bx">12:00〜12:30<wbr>（雨天時は<wbr>中止します）</span></span></li>
-          <li><span class="bx">わたが<wbr>し・フランクフルト 無料配布</span><span class="note"><span class="bx">日下部記念病院</span></span></li>
+          <li><span class="bx">加納岩の<wbr>歌姫YUKI 歌謡ショー</span><span class="note"><span class="bx">12:40〜13:00<wbr>（在宅医療センター <span class="nw">新谷有希</span>医師）</span></span></li>
+          <li><span class="bx">わたがし・フランクフルト 無料配布</span><span class="note"><span class="bx">日下部記念病院</span></span></li>
           <li><span class="bx">キッチンカー・パン・コーヒー販売</span></li>
           <li><span class="bx">救急車・パトカーなど はたらく<wbr>車の展示</span></li>
         </ul>
@@ -470,7 +487,7 @@ footer a{color:#fff}
 
     <div class="stamp">
       <svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="25" fill="#FFF" stroke="#EE7F86" stroke-width="3"/><circle cx="28" cy="28" r="18" fill="none" stroke="#EE7F86" stroke-width="1.5" stroke-dasharray="3 3"/><path d="M19 29l6 6 12-14" fill="none" stroke="#EE7F86" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div><b><span class="bx">スタンプラリー</span></b><br><span class="bx">会場を<wbr>回って<wbr>スタンプを<wbr>集めると、<wbr>粗品を<wbr>プレゼントします。<wbr>スタンプカードは<wbr>会場受付で<wbr>お渡しします。</span></div>
+      <div><b><span class="bx">スタンプラリー</span></b><br><span class="bx">スタンプカードは<wbr>会場受付で<wbr>お渡しします。<wbr>会場を<wbr>回って<wbr>スタンプを<wbr>集め、<wbr>スタンプラリーを<wbr>完成させた方に<wbr>記念品を<wbr>プレゼントします。</span></div>
     </div>
     <p class="mask-note"><span class="bx">※感染対策の<wbr>ため、<wbr>病院内では<wbr>マスクの<wbr>着用を<wbr>お願いいたします</span></p>
   </div>
@@ -481,16 +498,26 @@ footer a{color:#fff}
   <div class="narrow">
     <h2 class="sec-title"><span class="bx">タイムテーブル</span></h2>
     <p class="lead"><span class="bx">健康チェックブース・キッチンカーなどは<wbr>10:00〜15:00の<wbr>間いつでも<wbr>お楽しみいただけます。</span></p>
+    <div class="area-legend" aria-label="場所の目印">
+      <p><b>場所の目印</b></p>
+      <ul>
+        <li><span class="area a-kn">加納岩エリア</span><span class="bx">加納岩総合病院</span></li>
+        <li><span class="area a-ks">日下部エリア</span><span class="bx">日下部記念病院</span></li>
+        <li><span class="area a-om">おまつり広場</span><span class="bx">屋外ステージ・<wbr>キッチンカー</span></li>
+      </ul>
+      <p class="hint"><a href="#access">会場案内図で場所を見る</a></p>
+    </div>
     <ol class="tt">
-      <li style="--c:var(--coral)"><time>10:00</time><div><b><span class="bx">開会・受付スタート</span></b><span><span class="bx">受付で<wbr>スタンプカードと<wbr>記念品を<wbr>お渡しします</span></span></div></li>
-      <li style="--c:var(--pink)"><time>10:00</time><div><b><span class="bx">ラート体験</span></b><span><span class="bx">ラート世界チャンピオン 髙橋靖彦選手<wbr>（10:00〜13:00）</span></span></div></li>
-      <li style="--c:var(--sky)"><time>10:30</time><div><b><span class="bx">山梨市民吹奏楽団 演奏</span></b><span><span class="bx">おまつり広場<wbr>（10:30〜11:30）</span></span></div></li>
-      <li style="--c:var(--yellow)"><time>10:40</time><div><b><span class="bx">わくわく<wbr>病院探検ツアー</span></b><span><span class="bx">10:40 受付開始／10:50〜12:40 ツアー<wbr>（事前申込の<wbr>方のみ）</span></span></div></li>
-      <li style="--c:var(--mint)"><time>11:00</time><div><b><span class="bx">AED体験<wbr>（1回目）</span></b><span><span class="bx">45分程度</span></span></div></li>
-      <li style="--c:var(--mint)"><time>12:00</time><div><b><span class="bx">日川高等学校 書道部パフォーマンス</span></b><span><span class="bx">おまつり広場<wbr>（12:00〜12:30）<wbr><span class="nw">※雨天中止</span></span></span></div></li>
-      <li style="--c:var(--mint)"><time>13:00</time><div><b><span class="bx">AED体験<wbr>（2回目）</span></b><span><span class="bx">45分程度</span></span></div></li>
-      <li style="--c:var(--lilac)"><time>13:30</time><div><b><span class="bx">講演<wbr>「脳卒中から<wbr>脳を守る！」</span></b><span><span class="bx">加納岩総合病院 2階 大会議室<wbr>（13:30〜14:30／開場 13:00）</span></span></div></li>
-      <li style="--c:var(--coral)"><time>15:00</time><div><b>閉会</b></div></li>
+      <li style="--c:var(--coral)"><time>10:00</time><div><b><span class="bx">開会・受付<wbr>スタート・<wbr>各ブース<wbr>スタート</span></b><span class="areas"><span class="area a-kn">加納岩エリア</span><span class="area a-ks">日下部エリア</span></span><span><span class="bx">受付で<wbr>スタンプカードを<wbr>お渡しします。<wbr>スタンプラリーを<wbr>完成させた方に<wbr>記念品を<wbr>お渡しします</span></span></div></li>
+      <li style="--c:var(--pink)"><time>10:00</time><div><b><span class="bx">ラート体験</span></b><span class="areas"><span class="area a-kn">加納岩エリア</span></span><span><span class="bx">ラート世界チャンピオン 髙橋靖彦選手<wbr>（10:00〜13:00）</span></span></div></li>
+      <li style="--c:var(--yellow)"><time>10:20</time><div><b><span class="bx">わくわく病院探検ツアー</span></b><span class="areas"><span class="area a-kn">加納岩エリア</span></span><span><span class="bx">10:20 受付・集合<wbr>（会計窓口前）／<wbr>10:40〜12:35 ツアー<wbr>（事前申込の<wbr>方のみ）</span></span></div></li>
+      <li style="--c:var(--sky)"><time>10:30</time><div><b><span class="bx">山梨市民吹奏楽団 演奏</span></b><span class="areas"><span class="area a-om">おまつり広場</span></span><span><span class="bx">10:30〜11:30</span></span></div></li>
+      <li style="--c:var(--mint)"><time>11:00</time><div><b><span class="bx">AED体験<wbr>（1回目）</span></b><span class="areas"><span class="area a-kn">加納岩エリア</span></span><span><span class="bx">45分程度</span></span></div></li>
+      <li style="--c:var(--mint)"><time>12:00</time><div><b><span class="bx">日川高等学校 書道部パフォーマンス</span></b><span class="areas"><span class="area a-om">おまつり広場</span></span><span><span class="bx">12:00〜12:30 <span class="nw">※雨天中止</span></span></span></div></li>
+      <li style="--c:var(--pink)"><time>12:40</time><div><b><span class="bx">加納岩の<wbr>歌姫YUKI 歌謡ショー</span></b><span class="areas"><span class="area a-om">おまつり広場</span></span><span><span class="bx">在宅医療センター <span class="nw">新谷有希</span>医師<wbr>（12:40〜13:00）</span></span></div></li>
+      <li style="--c:var(--mint)"><time>13:00</time><div><b><span class="bx">AED体験<wbr>（2回目）</span></b><span class="areas"><span class="area a-kn">加納岩エリア</span></span><span><span class="bx">45分程度</span></span></div></li>
+      <li style="--c:var(--lilac)"><time>13:30</time><div><b><span class="bx">講演<wbr>「脳卒中から<wbr>脳を守る！」</span></b><span class="areas"><span class="area a-kn">加納岩エリア</span></span><span><span class="bx">加納岩総合病院 2階 大会議室<wbr>（13:30〜14:30／<wbr>開場 13:00）</span></span></div></li>
+      <li style="--c:var(--coral)"><time>15:00</time><div><b><span class="bx">閉会</span></b></div></li>
     </ol>
   </div>
 </section>
@@ -506,8 +533,8 @@ footer a{color:#fff}
         <dl class="facts">
           <dt>対象</dt><dd><span class="bx">小学生・中学生<wbr>（保護者の<wbr>同伴可）</span></dd>
           <dt>定員</dt><dd><span class="bx">10名<wbr>（5名×2班）</span><br><span class="hint"><span class="bx">申込多数の<wbr>場合は<wbr>抽選。<wbr>当選された<wbr>方には<wbr>11月4日<wbr>（水）までに<wbr>メールで<wbr>ご連絡します</span></span></dd>
-          <dt>時間</dt><dd>10:50〜12:40<br><span class="hint"><span class="bx">※10:40から<wbr>受付を<wbr>開始します</span></span></dd>
-          <dt>集合</dt><dd><span class="bx">10:40までに<wbr>加納岩総合病院 会計窓口前</span></dd>
+          <dt>時間</dt><dd>10:40〜12:35<br><span class="hint"><span class="bx">※10:20から<wbr>受付を<wbr>開始します</span></span></dd>
+          <dt>集合</dt><dd><span class="bx">10:20までに<wbr>加納岩総合病院 会計窓口前</span></dd>
           <dt>参加費</dt><dd>無料</dd>
         </dl>
       </div>
@@ -593,7 +620,7 @@ footer a{color:#fff}
             <div class="notice-box" tabindex="0" aria-label="注意事項">
               <ul>
                 <li><span class="bx">申込多数の<wbr>場合は<wbr>抽選とし、<wbr>当選された<wbr>方にのみ<wbr>11月4日<wbr>（水）までに<wbr>メールで<wbr>ご連絡します<wbr>（落選の<wbr>ご連絡は<wbr>いたしません）。</span></li>
-                <li><span class="bx">当日は<wbr>10:40から<wbr>受付を<wbr>開始します。<wbr>10:40までに<wbr>加納岩総合病院 会計窓口前で<wbr>受付を<wbr>済ませてください。</span></li>
+                <li><span class="bx">当日は<wbr>10:20から<wbr>受付を<wbr>開始します。<wbr>10:20までに<wbr>加納岩総合病院 会計窓口前で<wbr>受付を<wbr>済ませてください。</span></li>
                 <li><span class="bx">必ず<wbr>スタッフと<wbr>一緒に<wbr>行動し、<wbr>立入禁止の<wbr>場所には<wbr>入らないでください。</span></li>
                 <li><span class="bx">院内では<wbr>走らず、<wbr>大きな<wbr>声を<wbr>出さないよう<wbr>お願いします。<wbr>医療機器や<wbr>備品には<wbr>スタッフの<wbr>許可なく<wbr>触れないでください。</span></li>
                 <li><span class="bx">患者さんの<wbr>診療が<wbr>優先と<wbr>なります。<wbr>当日の<wbr>状況に<wbr>より、<wbr>ルートや<wbr>体験内容を<wbr>変更・中止する<wbr>場合が<wbr>あります。</span></li>
@@ -656,13 +683,13 @@ footer a{color:#fff}
             <rect x="20" y="150" width="190" height="134" rx="10" fill="#E4EEF9" stroke="#9DB7D6"/>
             <text x="115" y="234" font-size="48" font-weight="900" fill="#5B7CA8" text-anchor="middle">P</text>
             <text x="115" y="174" font-size="12" font-weight="700" fill="#5B7CA8" text-anchor="middle">駐車場</text>
-            <!-- 加納岩総合病院 -->
-            <rect x="150" y="20" width="200" height="96" rx="8" fill="#F4F0FA" stroke="#B9B2C4"/>
+            <!-- 加納岩総合病院（加納岩エリア） -->
+            <rect x="150" y="20" width="200" height="96" rx="8" fill="#EDE5FA" stroke="#B59BE0" stroke-width="1.5"/>
             <text x="250" y="47" font-size="15" font-weight="900" fill="#3F3A4A" text-anchor="middle">加納岩総合病院</text>
             <text x="250" y="72" font-size="11.5" font-weight="700" fill="#655F72" text-anchor="middle">健康チェック・体験イベント</text>
             <text x="250" y="92" font-size="11.5" font-weight="700" fill="#655F72" text-anchor="middle">講演（2階 大会議室）</text>
-            <!-- 日下部記念病院 -->
-            <rect x="362" y="20" width="146" height="96" rx="8" fill="#F4F0FA" stroke="#B9B2C4"/>
+            <!-- 日下部記念病院（日下部エリア） -->
+            <rect x="362" y="20" width="146" height="96" rx="8" fill="#E1F4EC" stroke="#7CC4A6" stroke-width="1.5"/>
             <text x="435" y="45" font-size="14" font-weight="900" fill="#3F3A4A" text-anchor="middle">日下部記念病院</text>
             <text x="435" y="67" font-size="11.5" font-weight="700" fill="#655F72" text-anchor="middle">体験イベント</text>
             <text x="435" y="85" font-size="11" font-weight="700" fill="#655F72" text-anchor="middle">無料屋台（わたがし・</text>
